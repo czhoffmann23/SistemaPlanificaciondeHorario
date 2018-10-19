@@ -2,12 +2,12 @@
 Proyecto elaborado en la Universidad Finis Terrae para el curso de Electivo de Informatica I, enfocado en el desarrollo de sistema que contemple la planificación de horarios, considerando asignaturas y docentes presentes, tanto en la facultad como complementarios de la Universidad.
 
 ### Requisitos
-```
+
 - Python27
-- Mysql Conector [a link](https://dev.mysql.com/downloads/connector/python/)
-- PhpMyAdmin [a link](https://www.phpmyadmin.net/downloads/)
-- WampServer [a link](https://sourceforge.net/projects/wampserver/)
-```
+- [MySql Connector] (https://dev.mysql.com/downloads/connector/python/)
+- [PhpMyAdmin](https://www.phpmyadmin.net/downloads/)
+- [WampServer](https://sourceforge.net/projects/wampserver/)
+
 
 ### Tecnologías
 
