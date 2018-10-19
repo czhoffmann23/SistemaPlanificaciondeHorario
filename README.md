@@ -19,7 +19,7 @@ Proyecto elaborado en la Universidad Finis Terrae para el curso de Electivo de I
 
 ### Run Server :+1:
 
-Correr archivo **route.py**, ya sea por IDLE o por Consola, el servidor correrá en
+Correr archivo **app.py**, ya sea por IDLE o por Consola, el servidor correrá en
 ```
 http://127.0.0.1:8080/
 ```
