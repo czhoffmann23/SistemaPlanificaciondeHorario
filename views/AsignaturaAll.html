@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Asignatura Pagina!</h1>
+
+<table>
+  <tr>
+    <th>NRC</th>
+    <th>Nombre Asignatura</th>
+    <th>Carrera</th>
+    <th>Semestre</th>
+    %for r in rows:
+        <tr>
+        %for c in r:
+        <td>{{c}}</td>
+        %end
+        </tr>
+     %end
+</table>
+
+</body>
+</html>

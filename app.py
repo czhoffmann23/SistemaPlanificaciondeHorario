@@ -1,5 +1,7 @@
 from bottle import route, run, template,static_file,error
-
+import sys
+sys.path.append('./controllers/')
+from asigController import *
 
 @error(404)
 def error404(error):
@@ -12,13 +14,16 @@ def index():
 def login():
     return '<h1> CACACA POTO </h1>'
 #===========  Visualizar  ===========
-@route('/profesores')
+@route('/ProfesoresAll')
 def profesores():
     return '<h1>Profesores Pagina!</h1>'
 
-@route('/asignaturas')
-def profesores():
-    return '<h1>Asignaturas Pagina!</h1>'
+@route('/AsignaturaAll')
+def asignaturas():
+    resultado=AsignaturasAll()
+    print("RESULTADO")
+    print(resultado)
+    return template('AsignaturaAll',rows=resultado)
 #===========  Detalle     ===========
 @route('/profesor/<id>')
 def profesorDetalle(id):
