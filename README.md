@@ -4,7 +4,7 @@ Proyecto elaborado en la Universidad Finis Terrae para el curso de Electivo de I
 ### Requisitos
 
 - Python27
-- [MySql Connector] (https://dev.mysql.com/downloads/connector/python/)
+- [MySql Connector](https://dev.mysql.com/downloads/connector/python/)
 - [PhpMyAdmin](https://www.phpmyadmin.net/downloads/)
 - [WampServer](https://sourceforge.net/projects/wampserver/)
 
