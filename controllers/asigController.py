@@ -1,5 +1,3 @@
-import sys
-sys.path.append('./services/')
 from services import *
 
 def AsignaturasAll():
