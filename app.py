@@ -1,4 +1,4 @@
-from bottle import route, run, template,static_file,error
+from bottle import route, run, template,static_file,error,post, request
 import sys
 sys.path.append('./controllers/')
 from asigController import *
@@ -56,6 +56,16 @@ def profesoresCrear():
 
 @route('/Asignatura/Nueva')
 def asignaturaCrear():
+    return template('AsignaturaNueva')
+
+@route('/', method="POST")
+def process():
+    nombre = request.forms.get('nombre')
+    semestre = request.forms.get('semestre')
+    carrera = request.forms.get('carrera')
+    nrc = request.forms.get('nrc')
+    message = "Hello " + nombre + "semestre " + semestre + "carrera" + carrera + "nrc" +nrc
+    print(message)
     return template('AsignaturaNueva')
 
 #===========    Buscar    ===========
