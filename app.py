@@ -21,44 +21,51 @@ def profesores():
 @route('/AsignaturaAll')
 def asignaturas():
     resultado=AsignaturasAll()
-    print("RESULTADO")
-    print(resultado)
     return template('AsignaturaAll',rows=resultado)
 #===========  Detalle     ===========
-@route('/profesor/<id>')
+@route('/Profesor/Detalle/<id>')
 def profesorDetalle(id):
     return '<h1>Profesor Detalle Pagina!</h1>'
 
-@route('/asignatura/<id>')
+@route('/Asignatura/Detalle/<id>')
 def asginaturaDetalle(id):
     return '<h1>Asginatura Detalle Pagina!</h1>'
 
 #===========  Modificar   ===========
-@route('/profesor/modificar/<id>')
+@route('/Profesor/Modificar/<id>')
 def profesorModificar(id):
     return '<h1>Profesor Modificar Pagina!</h1>'
 
-@route('/asignatura/modificar/<id>')
+@route('/Asignatura/Modificar/<id>')
 def asignaturaModificar(id):
     return '<h1>Asginatura Modificar Pagina!</h1>'
 
 #===========  Eliminar    ===========
-@route('/profesor/eliminar/<id>')
+@route('/Profesor/Eliminar/<id>')
 def profesorEliminar(id):
     return '<h1>Profesor Eliminar Pagina!</h1>'
 
-@route('/asignatura/eliminar/<id>')
+@route('/Asignatura/Eliminar/<id>')
 def asignaturaEliminar(id):
     return '<h1>Asginatura Eliminar Pagina aaaa  '+id+'!</h1>'
 
 #===========    Crear     ===========
-@route('/profesor/crear')
+@route('/Profesor/Nuevo')
 def profesoresCrear():
     return '<h1>Profesores Crear Pagina!</h1>'
 
-@route('/asignatura/crear')
+@route('/Asignatura/Nueva')
 def asignaturaCrear():
-    return '<h1>Asginatura Crear Paginaa!</h1>'
+    return template('AsignaturaNueva')
+
+#===========    Buscar    ===========
+@route('/Profesor/Buscar')
+def profesoresBuscar():
+    return '<h1>Profesores Buscar Pagina!</h1>'
+
+@route('/Asignatura/Buscar')
+def asignaturaBuscar():
+    return '<h1>Asginatura Buscar Paginaa!</h1>'
 
 #===========   Rutas Estaticas   ===========
 @route('/static/<filename>')
