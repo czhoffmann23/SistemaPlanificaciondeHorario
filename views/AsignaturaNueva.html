@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <style>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/staticss/remodal.css">
+    <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
+    <script src="/staticjs/remodal.min.js"></script>
+
+    <style>
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 80%;
         }
+
         .button {
             background-color: #3db1dc;
             border: none;
@@ -27,15 +33,17 @@
             font-weight: bold;
             transition: background-color 0.8s ease;
         }
-        .button:hover{      
-            padding: 10px 35px;  
+
+        .button:hover {
+            padding: 10px 35px;
             color: #3db1dc;
             background: #fff;
             text-decoration: none;
             border: 1px solid #3db1dc;
         }
 
-        td, th {
+        td,
+        th {
             border: 1px solid #dddddd;
             text-align: center;
             padding: 4px;
@@ -44,38 +52,38 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-      
-    
-        </style>
-        
-    </head>
+
+    </style>
+
+</head>
+
 <body>
 
 
-<div class="container">
-	<div class="row">
-        <div class="col-md-12">
-            <h2>Nueva Asignatura  </h2>
-            <form class="form-horizontal needs-validation" method="post" action="/" novalidate>
-                <fieldset>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Nueva Asignatura </h2>
+                <form class="form-horizontal needs-validation" method="post" action="/" novalidate>
+                    <fieldset>
 
 
-                <!-- Nombre input-->
-                <div class="form-row">
-                    <label class="col-md-3 control-label" for="nombre">Nombre de Asignatura</label>
-                    <div class="col-md-9">
-                        <input id="nombre" name="nombre" type="text" placeholder="Nombre de Asignatura" class="form-control" required>
-                        <div class="invalid-feedback">
-                                Porfavor ingresa asignatura valida.
+                        <!-- Nombre input-->
+                        <div class="form-row">
+                            <label class="col-md-3 control-label" for="nombre">Nombre de Asignatura</label>
+                            <div class="col-md-9">
+                                <input id="nombre" name="nombre" type="text" placeholder="Nombre de Asignatura" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    Porfavor ingresa asignatura valida.
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <br/>
-                <!-- Semestre input-->
-                <div class="form-row ">
-                    <label class="col-md-3 control-label" for="semestre">Semestre</label>
-                    <div class="col-md-9">
-                        <select id="semestre" name="semestre" class="form-control">
+                        <br/>
+                        <!-- Semestre input-->
+                        <div class="form-row ">
+                            <label class="col-md-3 control-label" for="semestre">Semestre</label>
+                            <div class="col-md-9">
+                                <select id="semestre" name="semestre" class="form-control">
                             <option value="Semestre 1">Semestre 1</option>
                             <option value="Semestre 2">Semestre 2</option>
                             <option value="Semestre 3">Semestre 3</option>
@@ -87,38 +95,38 @@
                             <option value="Semestre 9">Semestre 9</option>
                             <option value="Semestre 10">Semestre 10</option>
                         </select>
-                    </div>
-                </div>
-                <br/>
-                <!-- Carrera input-->
-                <div class="form-row ">
-                    <label class="col-md-3 control-label" for="carrera">Carrera</label>
-                    <div class="col-md-9">
-                        <select id="carrera" name="carrera" class="form-control">
+                            </div>
+                        </div>
+                        <br/>
+                        <!-- Carrera input-->
+                        <div class="form-row ">
+                            <label class="col-md-3 control-label" for="carrera">Carrera</label>
+                            <div class="col-md-9">
+                                <select id="carrera" name="carrera" class="form-control">
                             <option value="Carrera 1">Carrera 1</option>
                             <option value="Carrera 2">Carrera 2</option>
                         </select>
-                    </div>
-                </div>
-                <br/>
-                <!-- NRC input-->
-                <div class="form-row ">
-                    <label class="col-md-3 control-label" for="nrc">NRC</label>
-                    <div class="col-md-9">
-                        <input id="nrc" name="nrc" pattern="[0-9]+"  type="text" placeholder="NRC" class="form-control" required>
-                        <div class="invalid-feedback">
-                                Porfavor ingresa nrc valido.
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <br/>
-                <!-- Form actions -->
-                <div class="form-row ">
-                    <div class="col-md-6 text-left">
-                        <a href="http://localhost:8080/AsignaturaAll" class="button">Volver a Asignaturas</a>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <button type="submit" class="button">Guardar Asignatura</button >
+                        <br/>
+                        <!-- NRC input-->
+                        <div class="form-row ">
+                            <label class="col-md-3 control-label" for="nrc">NRC</label>
+                            <div class="col-md-9">
+                                <input id="nrc" name="nrc" pattern="[0-9]+" type="text" placeholder="NRC" class="form-control" required>
+                                <div class="invalid-feedback">
+                                    Porfavor ingresa nrc valido.
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <!-- Form actions -->
+                        <div class="form-row ">
+                            <div class="col-md-6 text-left">
+                                <a href="http://localhost:8080/AsignaturaAll" class="button">Volver a Asignaturas</a>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <button type="submit" class="button">Guardar Asignatura</button >
                     </div>
                 </div>
                 </fieldset>
@@ -148,25 +156,16 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-      
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Blabla</h4>
-            </div>
-            <div class="modal-body">
-              <p>Some text in the modal.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-      
-        </div>
-      </div>
+<div class="remodal" data-remodal-id="modal">
+  <button data-remodal-action="close" class="remodal-close"></button>
+                                <h1>Remodal</h1>
+                                <p>
+                                    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+                                </p>
+                                <br>
+                                <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+                                <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+                            </div>
 </body>
+
 </html>
- 

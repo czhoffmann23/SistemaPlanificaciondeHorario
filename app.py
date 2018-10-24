@@ -1,4 +1,4 @@
-from bottle import route, run, template,static_file,error,post, request
+from bottle import route, run, template,static_file,error,post, request, redirect, url
 import sys
 sys.path.append('./controllers/')
 from asigController import *
@@ -66,6 +66,7 @@ def process():
     nrc = request.forms.get('nrc')
     message = "Hello " + nombre + "semestre " + semestre + "carrera" + carrera + "nrc" +nrc
     print(message)
+    redirect(url('/Asignatura/Nueva') + '#modal')
     return template('AsignaturaNueva')
 
 #===========    Buscar    ===========
