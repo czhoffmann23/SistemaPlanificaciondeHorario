@@ -66,7 +66,8 @@ def process():
     nrc = request.forms.get('nrc')
     message = "Hello " + nombre + "semestre " + semestre + "carrera" + carrera + "nrc" +nrc
     print(message)
-    redirect(url('/Asignatura/Nueva') + '#modal')
+    #redirect(url('/Asignatura/Nueva') + '#exito')
+    #redirect(url('/Asignatura/Nueva') + '#error')
     return template('AsignaturaNueva')
 
 #===========    Buscar    ===========

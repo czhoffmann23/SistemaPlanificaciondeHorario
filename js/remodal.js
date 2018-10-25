@@ -544,6 +544,9 @@
       .append(remodal.$modal);
     $appendTo.append(remodal.$wrapper);
 
+
+  
+  
     // Add the event listener for the close button
     remodal.$wrapper.on('click.' + NAMESPACE, '[data-' + PLUGIN_NAME + '-action="close"]', function(e) {
       e.preventDefault();

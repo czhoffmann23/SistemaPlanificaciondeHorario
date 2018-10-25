@@ -13,6 +13,9 @@
     <script src="/staticjs/remodal.min.js"></script>
 
     <style>
+        a:hover{
+            color: white;
+        }
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -132,6 +135,10 @@
                 </fieldset>
             </form>
             <script>
+                    // Funcion para evitar que cierre al apretar fuera del boton
+                  $(document).ready(function () {
+                    $('.remodal-wrapper').unbind('click.remodal');
+                     });
                     // Example starter JavaScript for disabling form submissions if there are invalid fields
                     (function() {
                       'use strict';
@@ -155,17 +162,24 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="remodal" data-remodal-id="modal">
-  <button data-remodal-action="close" class="remodal-close"></button>
-                                <h1>Remodal</h1>
-                                <p>
-                                    Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
-                                </p>
-                                <br>
-                                <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
-                                <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
-                            </div>
+    <!-- Modal Exito -->
+    <div class="remodal" data-remodal-id="exito">
+        <h1 style="color:green"> ¡ Excelente ! </h1>
+        <p>
+            Se guardó exitosamente la nueva Asignatura
+        </p>
+        <br>
+        <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+    </div>
+      <!-- Modal Exito -->
+      <div class="remodal" data-remodal-id="error">
+            <h1 style="color:red"> ¡ Error ! </h1>
+            <p>
+                <strong>NO</strong> se guardó la nueva Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
 </body>
 
 </html>
