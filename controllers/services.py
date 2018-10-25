@@ -56,9 +56,9 @@ def CallServiceGetNRC(Tabla,nrc):
 
 
 #==============  SaveASignatura ================
-def CallServiceSaveAsignatura(Tabla,object):
+def CallServiceSaveAsignatura(Tabla,obj):
     insert= "INSERT INTO"+str(tabla)+"(`asg_nrc`, `asg_nombre`, `asg_carrera`, `asg_semestre`, `id`)"
-    insert2= "VALUES ("+str(object[0]) +","+str(object[1])+","+str(object[2])+","+str(object[3])+",NULL)"
+    insert2= "VALUES ("+str(obj[0]) +","+str(obj[1])+","+str(obj[2])+","+str(obj[3])+",NULL)"
     query=insert+insert2
     data = run_query(query)
     error=[]
