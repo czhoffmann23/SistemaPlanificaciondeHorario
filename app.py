@@ -29,7 +29,8 @@ def profesorDetalle(id):
 
 @route('/Asignatura/Detalle/<id>')
 def asginaturaDetalle(id):
-    return '<h1>Asginatura Detalle Pagina!</h1>'
+    resultado=AsignaturasDetalle(id)
+    return template('AsignaturaDetalle',rows=resultado)
 
 #===========  Modificar   ===========
 @route('/Profesor/Modificar/<id>')

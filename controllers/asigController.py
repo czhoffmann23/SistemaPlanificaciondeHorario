@@ -9,14 +9,21 @@ def AsignaturasAll():
     else:
         return data
 
+def AsignaturasDetalle(nrc):
+    data=CallServiceGetNRC("asignatura",nrc)
+    error=[]
+    if data==error:
+       print("no llego")
+
+    else:
+        return data
+
 def AsignaturaCreate(obj):
     nrc = obj[0]
     error=[]
     data_nrc=CallServiceGetNRC('asignatura',nrc)
-    print("data_nrc",data_nrc)
     if data_nrc==error: #no existe nrc
         data_obj=CallServiceSaveAsignatura('asignatura',obj)
-        print("data_obj",data_obj)
         if data_obj == None:
                 return 1
         else:
