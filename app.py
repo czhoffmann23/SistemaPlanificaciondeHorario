@@ -48,7 +48,30 @@ def profesorEliminar(id):
 
 @route('/Asignatura/Eliminar/<id>')
 def asignaturaEliminar(id):
-    return '<h1>Asginatura Eliminar Pagina aaaa  '+id+'!</h1>'
+    resultado=AsignaturasDetalle(id)
+    return template('AsignaturaEliminar',rows=resultado)
+@route('/Asignatura/EliminarCompleto/<id>')
+def asignaturaEliminarCompleto(id):
+    #funcion para eliminar
+    redirect(url('/Asignatura/Eliminar/'+id) + '#exito')
+
+
+@route('/delete', method="POST")
+def delete():
+    obj=[]
+    nombre = request.forms.get('nombre')
+    semestre = request.forms.get('semestre')
+    carrera = request.forms.get('carrera')
+    nrc = request.forms.get('nrc')
+    obj.append(nrc)
+    obj.append(nombre)
+    obj.append(carrera)
+    obj.append(semestre)
+    opcion=AsignaturaDelete(obj)
+    if opcion==1: #exito
+        redirect(url('/AsignaturaAll') + '#exito')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/Asignatura/Eliminar/'+nrc) + '#error')
 
 #===========    Crear     ===========
 @route('/Profesor/Nuevo')
@@ -78,7 +101,7 @@ def process():
         redirect(url('/Asignatura/Nueva') + '#error')
     if opcion ==3:  #error de nrc
         redirect(url('/Asignatura/Nueva') + '#errornrc')
-    
+        
     return template('AsignaturaNueva')
 
 #===========    Buscar    ===========

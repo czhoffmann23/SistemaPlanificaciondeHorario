@@ -30,3 +30,14 @@ def AsignaturaCreate(obj):
                 return 2
     else: #existe nrc
         return 3
+def AsignaturaDelete(obj):
+    nrc = obj[0]
+    error=[]
+    data_nrc=CallServiceGetNRC('asignatura',nrc)
+    obj.append(data_nrc[0][4])
+    data_obj=CallServiceUpdateAsignatura('asignatura',obj)
+    if data_obj == None:
+        return 1
+    else:
+        return 2
+   
