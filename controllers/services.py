@@ -45,7 +45,7 @@ def CallServiceGetOne(Tabla,id):
 
 #==============  GetNRC ================
 def CallServiceGetNRC(Tabla,nrc):
-    query="SELECT * FROM "+str(Tabla)+" WHERE id ="+str(nrc)+""
+    query="SELECT * FROM "+str(Tabla)+" WHERE asg_nrc = "+str(nrc)+""
     data = run_query(query)
     error=[]
     if data==error:
@@ -57,8 +57,8 @@ def CallServiceGetNRC(Tabla,nrc):
 
 #==============  SaveASignatura ================
 def CallServiceSaveAsignatura(Tabla,obj):
-    insert= "INSERT INTO"+str(tabla)+"(`asg_nrc`, `asg_nombre`, `asg_carrera`, `asg_semestre`, `id`)"
-    insert2= "VALUES ("+str(obj[0]) +","+str(obj[1])+","+str(obj[2])+","+str(obj[3])+",NULL)"
+    insert= "INSERT INTO "+Tabla+" (`asg_nrc`, `asg_nombre`, `asg_carrera`, `asg_semestre`, `id`)"
+    insert2= " VALUES ('"+obj[0] +"','"+obj[1]+"','"+obj[2]+"','"+obj[3]+"',NULL)"
     query=insert+insert2
     data = run_query(query)
     error=[]

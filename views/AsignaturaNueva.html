@@ -106,8 +106,8 @@
                             <label class="col-md-3 control-label" for="carrera">Carrera</label>
                             <div class="col-md-9">
                                 <select id="carrera" name="carrera" class="form-control">
-                            <option value="Carrera 1">Carrera 1</option>
-                            <option value="Carrera 2">Carrera 2</option>
+                            <option value="Ingenieria Civil en Informatica">Ingenieria Civil en Informatica</option>
+                            <option value="Ingenieria Civil Industrial">Ingenieria Civil Industrial</option>
                         </select>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
         <br>
         <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
     </div>
-      <!-- Modal Exito -->
+      <!-- Modal Error -->
       <div class="remodal" data-remodal-id="error">
             <h1 style="color:red"> ¡ Error ! </h1>
             <p>
@@ -180,6 +180,15 @@
             <br>
             <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
+         <!-- Modal Error de NRC -->
+      <div class="remodal" data-remodal-id="errornrc">
+        <h1 style="color:red"> ¡ Error ! </h1>
+        <p>
+            <strong>Ya existe</strong> el NRC de la nueva Asignatura
+        </p>
+        <br>
+        <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+    </div>
 </body>
 
 </html>

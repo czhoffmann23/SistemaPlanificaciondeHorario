@@ -11,6 +11,15 @@ def AsignaturasAll():
 
 def AsignaturaCreate(obj):
     nrc = obj[0]
-    #servicio para saber si existe nrc
-        #retornar si existe
-        #si no llamar servicio para insertar
+    error=[]
+    data_nrc=CallServiceGetNRC('asignatura',nrc)
+    print("data_nrc",data_nrc)
+    if data_nrc==error: #no existe nrc
+        data_obj=CallServiceSaveAsignatura('asignatura',obj)
+        print("data_obj",data_obj)
+        if data_obj == None:
+                return 1
+        else:
+                return 2
+    else: #existe nrc
+        return 3

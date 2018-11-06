@@ -60,14 +60,24 @@ def asignaturaCrear():
 
 @route('/', method="POST")
 def process():
+    obj=[]
     nombre = request.forms.get('nombre')
     semestre = request.forms.get('semestre')
     carrera = request.forms.get('carrera')
     nrc = request.forms.get('nrc')
-    message = "Hello " + nombre + "semestre " + semestre + "carrera" + carrera + "nrc" +nrc
-    print(message)
-    #redirect(url('/Asignatura/Nueva') + '#exito')
-    #redirect(url('/Asignatura/Nueva') + '#error')
+    obj.append(nrc)
+    obj.append(nombre)
+    obj.append(carrera)
+    obj.append(semestre)
+  
+    opcion=AsignaturaCreate(obj)
+    if opcion==1: #exito
+        redirect(url('/Asignatura/Nueva') + '#exito')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/Asignatura/Nueva') + '#error')
+    if opcion ==3:  #error de nrc
+        redirect(url('/Asignatura/Nueva') + '#errornrc')
+    
     return template('AsignaturaNueva')
 
 #===========    Buscar    ===========
