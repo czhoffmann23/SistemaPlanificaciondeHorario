@@ -4,8 +4,11 @@
 <head>
      <!-- Page Title-->
      <title>SISTEMA</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <script src="/staticjs/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
      <link rel="stylesheet" href="/staticss/remodal.css">
      <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
      <script src="/staticjs/remodal.min.js"></script>
@@ -35,6 +38,7 @@
          <link rel="stylesheet" href="/staticss/main.min.css">
        </noscript>
        <!-- Load Custom CSS Compiled without JS End-->
+
     <style>
         a:hover{
             color: white;
@@ -84,129 +88,225 @@
 </head>
 
 <body>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Nuevo Profesor </h2>
-                <form class="form-horizontal needs-validation" method="post" action="/profesornuevo" novalidate>
-                    <fieldset>
-
-
-                        <!-- Nombre input-->
-                        <div class="form-row">
-                            <label class="col-md-3 control-label" for="nombre">Nombre de Profesor</label>
-                            <div class="col-md-9">
-                                <input id="nombre" name="nombre" type="text" placeholder="Nombre de Profesor" class="form-control" required>
-                                <div class="invalid-feedback">
-                                    Porfavor ingresa nombre valido.
-                                </div>
-                            </div>
+      <!-- Loader End-->
+      <!-- page container area start -->
+      <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header" style="background: white;">
+                <div class="logo">
+                    <a href="http://localhost:8080/AsignaturaAll"><img style="width: 100%" src="/static/UFT_ORIG_LOGOS_ESCUDO_MATRIZ_HORIZ_COLOR_30.png" alt="logo"></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="icon-dashboard"></i><span>Asignaturas</span></a>
+                                <ul class="collapse">
+                                    <li class="active"><a href="#">Todas las Asignaturas</a></li>
+                                </ul>
+                                <a href="#" ><i class="icon-dashboard"></i><span>Profesores</span></a>
+                                 <ul class="collapse">
+                                    <li><a href="http://localhost:8080/ProfesoresAll">Todos los Profesores</a></li>
+                                </ul>
+                                <a href="#" ><i class="icon-dashboard"></i><span>Horarios</span></a>
+                                <ul class="collapse">
+                                    <li ><a href="http://localhost:8080/HorariosAll">Todos los Horarios</a></li>
+                                </ul>
+                            </li>
+                           
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Asignaturas</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="#">Home</a></li>
+                                <li><span>Todas las Asignaturas</span></li>
+                            </ul>
                         </div>
-                        <br/>
-                         <!-- Apellido input-->
-                        <div class="form-row">
-                            <label class="col-md-3 control-label" for="apellido">Apellido de Profesor</label>
-                            <div class="col-md-9">
-                                <input id="apellido" name="apellido" type="text" placeholder="Apellido de Profesor" class="form-control" required>
-                                <div class="invalid-feedback">
-                                    Porfavor ingresa apellido valido.
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <!-- Curso input-->
-                        <div class="form-row ">
-                            <label class="col-md-3 control-label" for="curso">Curso</label>
-                            <div class="col-md-9">
-                                <select id="curso" name="curso" class="form-control">
-                                <option value="Curso 1">Curso 1</option>
-                                <option value="Curso 2">Curso 2</option>
-                                <option value="Curso 3">Curso 3</option>
-                                <option value="Curso 4">Curso 4</option>
-                                </select>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right" style="background:#3db1dc">
+                            <a href="http://localhost:8080">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salir </h4>
+                            </a>
                             
-                        <br/>
-                        <!-- NRC input-->
-                        <div class="form-row ">
-                            <label class="col-md-3 control-label" for="rut">Rut</label>
-                            <div class="col-md-9">
-                                <input id="rut" name="rut" pattern="[0-9]+" type="text" placeholder="111111111" class="form-control" required>
-                                <div class="invalid-feedback">
-                                    Porfavor ingresa rut valido.
-                                </div>
-                            </div>
+                            
                         </div>
-                        <br/>
-                        <!-- Form actions -->
-                        <div class="form-row ">
-                            <div class="col-md-6 text-left">
-                                <a href="http://localhost:8080/ProfesorAll" class="button">Volver a Profesores</a>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <button type="submit" class="button">Guardar Profesor</button >
-                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page title area end -->
+            <div class="main-content-inner"> 
+                <!-- row area end -->
+                <div class="row mt-2">
+                    <!-- latest news area start -->
+                    <div class="col-xl-12">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2>Nuevo Profesor </h2>
+                                    <form class="form-horizontal needs-validation" method="post" action="/profesornuevo" novalidate>
+                                        <fieldset>
+                    
+                    
+                                            <!-- Nombre input-->
+                                            <div class="form-row">
+                                                <label class="col-md-3 control-label" for="nombre">Nombre de Profesor</label>
+                                                <div class="col-md-9">
+                                                    <input id="nombre" name="nombre" type="text" placeholder="Nombre de Profesor" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Porfavor ingresa nombre valido.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                             <!-- Apellido input-->
+                                            <div class="form-row">
+                                                <label class="col-md-3 control-label" for="apellido">Apellido de Profesor</label>
+                                                <div class="col-md-9">
+                                                    <input id="apellido" name="apellido" type="text" placeholder="Apellido de Profesor" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Porfavor ingresa apellido valido.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <!-- Curso input-->
+                                            <div class="form-row ">
+                                                <label class="col-md-3 control-label" for="curso">Curso</label>
+                                                <div class="col-md-9">
+                                                    <select id="curso" name="curso" class="form-control">
+                                                    <option value="Curso 1">Curso 1</option>
+                                                    <option value="Curso 2">Curso 2</option>
+                                                    <option value="Curso 3">Curso 3</option>
+                                                    <option value="Curso 4">Curso 4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                                
+                                            <br/>
+                                            <!-- NRC input-->
+                                            <div class="form-row ">
+                                                <label class="col-md-3 control-label" for="rut">Rut</label>
+                                                <div class="col-md-9">
+                                                    <input id="rut" name="rut" pattern="[0-9]+" type="text" placeholder="111111111" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Porfavor ingresa rut valido.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <!-- Form actions -->
+                                            <div class="form-row ">
+                                                <div class="col-md-6 text-left">
+                                                    <a href="http://localhost:8080/ProfesorAll" class="button">Volver a Profesores</a>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    <button type="submit" class="button">Guardar Profesor</button >
+                                                </div>
+                                            </div>
+                                    </fieldset>
+                                </form>
+                                <script>
+                                        // Funcion para evitar que cierre al apretar fuera del boton
+                                      $(document).ready(function () {
+                                        $('.remodal-wrapper').unbind('click.remodal');
+                                         });
+                                        // Example starter JavaScript for disabling form submissions if there are invalid fields
+                                        (function() {
+                                          'use strict';
+                                          window.addEventListener('load', function() {
+                                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                                            var forms = document.getElementsByClassName('needs-validation');
+                                            // Loop over them and prevent submission
+                                            var validation = Array.prototype.filter.call(forms, function(form) {
+                                              form.addEventListener('submit', function(event) {
+                                                if (form.checkValidity() === false) {
+                                                  event.preventDefault();
+                                                  event.stopPropagation();
+                                                }
+                                                form.classList.add('was-validated');
+                                              }, false);
+                                            });
+                                          }, false);
+                                        })();
+                                        </script>
+                            </div>            
                         </div>
-                </fieldset>
-            </form>
-            <script>
-                    // Funcion para evitar que cierre al apretar fuera del boton
-                  $(document).ready(function () {
-                    $('.remodal-wrapper').unbind('click.remodal');
-                     });
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function() {
-                      'use strict';
-                      window.addEventListener('load', function() {
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.getElementsByClassName('needs-validation');
-                        // Loop over them and prevent submission
-                        var validation = Array.prototype.filter.call(forms, function(form) {
-                          form.addEventListener('submit', function(event) {
-                            if (form.checkValidity() === false) {
-                              event.preventDefault();
-                              event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                          }, false);
-                        });
-                      }, false);
-                    })();
-                    </script>
-        </div>            
-    </div>
-</div>
-
-    <!-- Modal Exito -->
-    <div class="remodal" data-remodal-id="exito">
-        <h1 style="color:green"> ¡ Excelente ! </h1>
-        <p>
-            Se guardó exitosamente el nuevo Profesor
-        </p>
-        <br>
-        <a style="text-decoration:none" href="http://localhost:8080/ProfesorAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
-    </div>
-      <!-- Modal Error -->
-      <div class="remodal" data-remodal-id="error">
+                    </div>
+                    </div>
+                       
+                </div>
+                <!-- row area start-->
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright 2018 . Sistema de Horarios</p>
+            </div>
+        </footer>
+        <!-- footer area end-->
+        <script>
+            // Funcion para evitar que cierre al apretar fuera del boton
+          $(document).ready(function () {
+            $('.remodal-wrapper').unbind('click.remodal');
+             });
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+        </script>
+       
+        <!-- Modal Error -->
+        <div class="remodal" data-remodal-id="error">
+                <h1 style="color:red"> ¡ Error ! </h1>
+                <p>
+                    <strong>NO</strong> se guardó la nueva Asignatura
+                </p>
+                <br>
+                <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+            </div>
+            <!-- Modal Error de NRC -->
+        <div class="remodal" data-remodal-id="errornrc">
             <h1 style="color:red"> ¡ Error ! </h1>
             <p>
-                <strong>NO</strong> se guardó el nuevo Profesor
+                <strong>Ya existe</strong> el NRC de la nueva Asignatura
             </p>
             <br>
-            <a style="text-decoration:none" href="http://localhost:8080/Profesor/Nuevo" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+            <a style="text-decoration:none" href="http://localhost:8080/Asignatura/Nueva" data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
-         <!-- Modal Error de NRC -->
-      <div class="remodal" data-remodal-id="errornrc">
-        <h1 style="color:red"> ¡ Error ! </h1>
-        <p>
-            <strong>Ya existe</strong> el RUT de Profesor
-        </p>
-        <br>
-        <a style="text-decoration:none" href="http://localhost:8080/Profesor/Nuevo" data-remodal-action="confirm" class="remodal-confirm">OK</a>
     </div>
+   
       <!-- Load Scripts Start-->
       <script type="text/javascript" src="/staticjs/libs.min.js"></script>
       <script type="text/javascript" src="/staticjs/ramio-custom.js"></script>

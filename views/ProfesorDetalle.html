@@ -4,8 +4,11 @@
 <head>
     <!-- Page Title-->
     <title>SISTEMA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/staticjs/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/staticss/remodal.css">
     <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
     <script src="/staticjs/remodal.min.js"></script>
@@ -79,44 +82,128 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+        .cuerpo{
+            /* text-align: center; */
+            padding: 15px 15px;
+            margin: 19px 22px;
+            text-align: center;
+        }
 
     </style>
 
 </head>
 
 <body>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Detalle de Profesor </h2>
-                <table style="width:60%">
-                   
-                    <tr>
-                        <th>Nombre de Profesor</th>
-                        <td>{{rows[0][0]}}</td>
-                    </tr>
-                    <tr>
-                        <th>Apellido de Profesor</th>
-                        <td>{{rows[0][2]}}</td>
-                    </tr>
-                    <tr>
-                        <th>Curso</th>
-                        <td>{{rows[0][4]}}</td>
-                    </tr>
-                    <tr>
-                        <th>Rut</th>
-                        <td>{{rows[0][3]}}</td>
-                    </tr>
-                  </table>
-                <div class="row ">
-                    <div class="col-md-6 text-left">
-                        <a href="http://localhost:8080/ProfesorAll" class="button">Volver a Profesores</a>
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header" style="background: white;">
+                <div class="logo">
+                    <a href="http://localhost:8080/AsignaturaAll"><img style="width: 100%" src="/static/UFT_ORIG_LOGOS_ESCUDO_MATRIZ_HORIZ_COLOR_30.png" alt="logo"></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="icon-dashboard"></i><span>Asignaturas</span></a>
+                                <ul class="collapse">
+                                    <li ><a href="http://localhost:8080/AsignaturaAll">Todas las Asignaturas</a></li>
+                                </ul>
+                                <a href="#" ><i class="icon-dashboard"></i><span>Profesores</span></a>
+                                 <ul class="collapse">
+                                    <li class="active"><a href="#">Todos los Profesores</a></li>
+                                </ul>
+                                <a href="http://localhost:8080/HorariosAll" ><i class="icon-dashboard"></i><span>Horarios</span></a>
+                                <ul class="collapse">
+                                    <li ><a href="index.html">Todos los Horarios</a></li>
+                                </ul>
+                            </li>
+                           
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+         <!-- main content area start -->
+         <div class="main-content">
+                
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Profesores</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="#">Home</a></li>
+                                <li><span>Todos los Profesores</span></li>
+                            </ul>
+                        </div>
                     </div>
-        </div>            
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right" style="background:#3db1dc">
+                            <a href="http://localhost:8080">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Salir </h4>
+                            </a>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page title area end -->
+            <!-- page title area end -->
+            <div class="main-content-inner"> 
+            <!-- row area end -->
+            <div class="row mt-2">
+                <!-- latest news area start -->
+                <div class="col-xl-12">
+                        <div class="row" style="text-align: center; margin-right: 0px">
+                            <h2>Detalle de Profesor </h2>
+                        </div>
+                        <div class="cuerpo">
+                        <table style="width:60%">
+                        
+                            <tr>
+                                <th>Nombre de Profesor</th>
+                                <td>{{rows[0][0]}}</td>
+                            </tr>
+                            <tr>
+                                <th>Apellido de Profesor</th>
+                                <td>{{rows[0][2]}}</td>
+                            </tr>
+                            <tr>
+                                <th>Curso</th>
+                                <td>{{rows[0][4]}}</td>
+                            </tr>
+                            <tr>
+                                <th>Rut</th>
+                                <td>{{rows[0][3]}}</td>
+                            </tr>
+                        </table>
+                        <div class="row ">
+                            <div class="col-md-6 text-left">
+                                <a href="http://localhost:8080/ProfesorAll" class="button">Volver a Profesores</a>
+                            </div>
+                            
+                        </div>     
+                </div>
+                      
+            </div>
+        </div>
     </div>
+    <!-- main content area end -->
+    <!-- footer area start-->
+    <footer>
+        <div class="footer-area">
+            <p>© Copyright 2018 . Sistema de Horarios</p>
+        </div>
+    </footer>
+    <!-- footer area end-->
 </div>
+
   <!-- Load Scripts Start-->
   <script type="text/javascript" src="/staticjs/libs.min.js"></script>
   <script type="text/javascript" src="/staticjs/ramio-custom.js"></script>
