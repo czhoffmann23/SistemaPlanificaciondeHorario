@@ -139,13 +139,13 @@ def process():
   
     opcion=AsignaturaCreate(obj)
     if opcion==1: #exito
-        redirect(url('/Asignatura/Nueva') + '#exito')
+        redirect(url('/AsignaturaAll') + '#exitonueva')
     if opcion == 2:          #error en ingreso
         redirect(url('/Asignatura/Nueva') + '#error')
     if opcion ==3:  #error de nrc
         redirect(url('/Asignatura/Nueva') + '#errornrc')
         
-    return template('AsignaturaNueva')
+    return template('AsignaturaAll')
 
 #===========    Buscar    ===========
 @route('/Profesor/Buscar')
