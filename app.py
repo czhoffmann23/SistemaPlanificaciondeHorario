@@ -13,9 +13,7 @@ def error404(error):
 def index():
     return template('index')
 
-@route('/login')
-def login():
-    return '<h1> CACACA POTO </h1>'
+
 #===========  Visualizar  ===========
 @route('/ProfesoresAll')
 def profesores():
@@ -119,12 +117,32 @@ def delete():
 #===========    Crear     ===========
 @route('/Profesor/Nuevo')
 def profesoresCrear():
-    return '<h1>Profesores Crear Pagina!</h1>'
+    return template('ProfesorNueva')
+@route('/profesornuevo', method="POST")
+def process():
+    obj=[]
+    nombre = request.forms.get('nombre')
+    apellido = request.forms.get('apellido')
+    curso = request.forms.get('curso')
+    rut = request.forms.get('rut')
+    obj.append(nombre)
+    obj.append(apellido)
+    obj.append(curso)
+    obj.append(rut)
+  
+    opcion=ProfesorCreate(obj)
+    if opcion==1: #exito
+        redirect(url('/Profesor/Nuevo') + '#exito')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/Profesor/Nuevo') + '#error')
+    if opcion ==3:  #error de nrc
+        redirect(url('/Profesor/Nuevo') + '#errornrc')
+        
+    return template('ProfesorNueva')
 
 @route('/Asignatura/Nueva')
 def asignaturaCrear():
     return template('AsignaturaNueva')
-
 @route('/', method="POST")
 def process():
     obj=[]
