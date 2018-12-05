@@ -3,8 +3,11 @@
     <head>
         <!-- Page Title-->
         <title>SISTEMA</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="/staticjs/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="/staticss/remodal.css">
         <link rel="stylesheet" href="/staticss/remodal-default-theme.css">
         <script src="/staticjs/remodal.min.js"></script>
@@ -115,16 +118,15 @@
                                 <li class="active">
                                     <a href="javascript:void(0)" aria-expanded="true"><i class="icon-dashboard"></i><span>Asignaturas</span></a>
                                     <ul class="collapse">
-                                        <li class="active"><a href="index2.html">Informatica</a></li>
-                                        <li><a href="index3.html">Industrial</a></li>
+                                        <li class="active"><a href="index2.html">Todas las Asignaturas</a></li>
                                     </ul>
                                     <a href="http://localhost:8080/ProfesoresAll" ><i class="icon-dashboard"></i><span>Profesores</span></a>
                                      <ul class="collapse">
-                                        <li><a href="index2.html">Profesores</a></li>
+                                        <li><a href="index2.html">Todos los Profesores</a></li>
                                     </ul>
                                     <a href="http://localhost:8080/HorariosAll" ><i class="icon-dashboard"></i><span>Horarios</span></a>
                                     <ul class="collapse">
-                                        <li ><a href="index.html">Horarios</a></li>
+                                        <li ><a href="index.html">Todos los Horarios</a></li>
                                     </ul>
                                 </li>
                                
@@ -145,7 +147,7 @@
                                 <h4 class="page-title pull-left">Asignaturas</h4>
                                 <ul class="breadcrumbs pull-left">
                                     <li><a href="index.html">Home</a></li>
-                                    <li><span>Informatica</span></li>
+                                    <li><span>Todas las Asignaturas</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -210,65 +212,67 @@
             <!-- footer area start-->
             <footer>
                 <div class="footer-area">
-                    <p>© Copyright 2018 . All right reserved</p>
+                    <p>© Copyright 2018 . Sistema de Horarios</p>
                 </div>
             </footer>
             <!-- footer area end-->
+          
         </div>
 
-
-<script>
-        // Funcion para evitar que cierre al apretar fuera del boton
-      $(document).ready(function () {
-        $('.remodal-wrapper').unbind('click.remodal');
-         });
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-          'use strict';
-          window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-              form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-                form.classList.add('was-validated');
+        <script>
+            // Funcion para evitar que cierre al apretar fuera del boton
+          $(document).ready(function () {
+            $('.remodal-wrapper').unbind('click.remodal');
+             });
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
               }, false);
-            });
-          }, false);
-        })();
+            })();
         </script>
+        <!-- Modal Exito -->
+        <div class="remodal" data-remodal-id="exito">
+            <h1 style="color:green"> ¡ Excelente ! </h1>
+            <p>
+                Se eliminó exitosamente la Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+        <!-- Modal Exito -->
+        <div class="remodal" data-remodal-id="exitoupdate">
+            <h1 style="color:green"> ¡ Excelente ! </h1>
+            <p>
+                Se actualizo exitosamente la Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+        <!-- Modal Error -->
+        <div class="remodal" data-remodal-id="errorupdate">
+            <h1 style="color:red"> ¡ Error ! </h1>
+            <p>
+                <strong>NO</strong>Se actualizo la Asignatura
+            </p>
+            <br>
+            <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+
         
-    <!-- Modal Exito -->
-    <div class="remodal" data-remodal-id="exito">
-        <h1 style="color:green"> ¡ Excelente ! </h1>
-        <p>
-            Se eliminó exitosamente la Asignatura
-        </p>
-        <br>
-        <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
-    </div>
-    <!-- Modal Exito -->
-    <div class="remodal" data-remodal-id="exitoupdate">
-        <h1 style="color:green"> ¡ Excelente ! </h1>
-        <p>
-            Se actualizo exitosamente la Asignatura
-        </p>
-        <br>
-        <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
-    </div>
-     <!-- Modal Error -->
-     <div class="remodal" data-remodal-id="errorupdate">
-        <h1 style="color:red"> ¡ Error ! </h1>
-        <p>
-            <strong>NO</strong>Se actualizo la Asignatura
-        </p>
-        <br>
-        <a style="text-decoration:none" href="http://localhost:8080/AsignaturaAll" data-remodal-action="confirm" class="remodal-confirm">OK</a>
-    </div>
+    
       <!-- Load Scripts Start-->
       <script type="text/javascript" src="/staticjs/libs.min.js"></script>
       <script type="text/javascript" src="/staticjs/ramio-custom.js"></script>
