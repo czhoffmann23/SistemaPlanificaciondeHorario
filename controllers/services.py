@@ -71,10 +71,20 @@ def CallServiceSaveAsignatura(Tabla,obj):
 #==============  UpdateASignatura ================
 def CallServiceUpdateAsignatura(Tabla,obj):
     print("obj servicio", obj)
-    insert= "UPDATE "+Tabla+" SET `asg_nrc`='-1',`asg_nombre`='"+obj[1]+"',`asg_carrera`='"+obj[2]+"',`asg_semestre`='"+obj[3]+"',`id`='"+str(obj[4])+"'"
+    insert= "UPDATE "+Tabla+" SET `asg_nrc`='"+obj[0]+"',`asg_nombre`='"+obj[1]+"',`asg_carrera`='"+obj[2]+"',`asg_semestre`='"+obj[3]+"',`id`='"+str(obj[4])+"'"
     insert2= " WHERE asg_nrc = '"+obj[0]+"'"
     query=insert+insert2
     print(query)
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error 
+
+    else:
+        return data
+#==============  DeleteAsignatura ================
+def CallServiceDeleteAsignatura(Tabla,obj):
+    query="DELETE FROM "+Tabla+" WHERE asg_nrc = '"+obj[0]+"'"
     data = run_query(query)
     error=[]
     if data==error:

@@ -2,6 +2,9 @@ from bottle import route, run, template,static_file,error,post, request, redirec
 import sys
 sys.path.append('./controllers/')
 from asigController import *
+import sys
+sys.path.append('./controllers/')
+from profController import *
 
 @error(404)
 def error404(error):
@@ -35,16 +38,56 @@ def asginaturaDetalle(id):
 #===========  Modificar   ===========
 @route('/Profesor/Modificar/<id>')
 def profesorModificar(id):
-    return '<h1>Profesor Modificar Pagina!</h1>'
+    resultado=ProfesorDetalle(id)
+    return template('ProfesorModificar',rows=resultado)
+@route('/modificarprof', method="POST")
+def process():
+    obj=[]
+    nombre = request.forms.get('nombre')
+    apellido = request.forms.get('apellido')
+    curso = request.forms.get('curso')
+    rut = request.forms.get('rut')
+    obj.append(nombre)
+    obj.append(apellido)
+    obj.append(curso)
+    obj.append(rut)
+  
+    opcion=ProfesorUpdate(obj)
+    if opcion==1: #exito
+        redirect(url('/ProfesorAll') + '#exitoupdate')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/ProfesorAll') + '#errorupdate')
 
 @route('/Asignatura/Modificar/<id>')
 def asignaturaModificar(id):
-    return '<h1>Asginatura Modificar Pagina!</h1>'
+    resultado=AsignaturasDetalle(id)
+    return template('AsignaturaModificar',rows=resultado)
+@route('/modificar', method="POST")
+def process():
+    obj=[]
+    nombre = request.forms.get('nombre')
+    semestre = request.forms.get('semestre')
+    carrera = request.forms.get('carrera')
+    nrc = request.forms.get('nrc')
+    obj.append(nrc)
+    obj.append(nombre)
+    obj.append(carrera)
+    obj.append(semestre)
+  
+    opcion=AsignaturaUpdate(obj)
+    if opcion==1: #exito
+        redirect(url('/AsignaturaAll') + '#exitoupdate')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/AsignaturaAll') + '#errorupdate')
 
 #===========  Eliminar    ===========
 @route('/Profesor/Eliminar/<id>')
 def profesorEliminar(id):
-    return '<h1>Profesor Eliminar Pagina!</h1>'
+    opcion=ProfesorDelete(id)
+    if opcion==1: #exito
+        redirect(url('/ProfesorAll') + '#exitoborrar')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/ProfesorAll') + '#errorborrar')
 
 @route('/Asignatura/Eliminar/<id>')
 def asignaturaEliminar(id):

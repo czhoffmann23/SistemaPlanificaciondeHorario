@@ -31,6 +31,13 @@ def AsignaturaCreate(obj):
     else: #existe nrc
         return 3
 def AsignaturaDelete(obj):
+    data_obj=CallServiceDeleteAsignatura('asignatura',obj)
+    if data_obj == None:
+        return 1
+    else:
+        return 2
+
+def AsignaturaUpdate(obj):
     nrc = obj[0]
     error=[]
     data_nrc=CallServiceGetNRC('asignatura',nrc)
@@ -40,4 +47,3 @@ def AsignaturaDelete(obj):
         return 1
     else:
         return 2
-   
