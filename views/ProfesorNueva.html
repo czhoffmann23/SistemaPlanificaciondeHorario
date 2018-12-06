@@ -131,10 +131,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Asignaturas</h4>
+                            <h4 class="page-title pull-left">Profesores</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="#">Home</a></li>
-                                <li><span>Todas las Asignaturas</span></li>
+                                <li><span>Todas los Profesores</span></li>
                             </ul>
                         </div>
                     </div>
@@ -185,21 +185,7 @@
                                                 </div>
                                             </div>
                                             <br/>
-                                            <!-- Curso input-->
-                                            <div class="form-row ">
-                                                <label class="col-md-3 control-label" for="curso">Curso</label>
-                                                <div class="col-md-9">
-                                                    <select id="curso" name="curso" class="form-control">
-                                                    <option value="Curso 1">Curso 1</option>
-                                                    <option value="Curso 2">Curso 2</option>
-                                                    <option value="Curso 3">Curso 3</option>
-                                                    <option value="Curso 4">Curso 4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                                
-                                            <br/>
-                                            <!-- NRC input-->
+                                            <!-- Rut input-->
                                             <div class="form-row ">
                                                 <label class="col-md-3 control-label" for="rut">Rut</label>
                                                 <div class="col-md-9">
@@ -210,10 +196,105 @@
                                                 </div>
                                             </div>
                                             <br/>
+                                            <!-- Curso input-->
+                                            <div class="form-row ">
+                                                <label class="col-md-3 control-label" for="curso">Curso</label>
+                                                <div class="col-md-9">
+                                                    <select id="curso" name="curso" class="form-control">
+                                                        %for r in rows:
+                                                            <option value="{{r[0]}}">{{r[0]}}</option>
+                                                        %end
+                                                    </select>
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <!-- Jornada input-->
+                                            <div class="form-row ">
+                                                <label class="col-md-3 control-label" for="jornada">Jornada</label>
+                                                <div class="col-md-9">
+                                                <select id="jornada" name="jornada" class="form-control">
+                                                    <option value="Part-time">Part-time</option>
+                                                    <option value="Full-time">Full-time</option>
+                                                </select>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <!-- Jornada input-->
+                                            <div class="form-row ">
+                                                    <label class="col-md-2 control-label" for="jornada">Horario</label>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Lunes</strong></label></br>
+                                                        <input type="checkbox" id="L1" name="L1" value="LB1"> <label for="L">Bloque 1</label></br>
+                                                        <input type="checkbox" id="L2" name="L2" value="LB2"> <label for="L">Bloque 2</label></br>
+                                                        <input type="checkbox" id="L3" name="L3" value="LB3"> <label for="L">Bloque 3</label></br>
+                                                        <input type="checkbox" id="L4" name="L4" value="LB4"> <label for="L">Bloque 4</label></br>
+                                                        <input type="checkbox" id="L5" name="L5" value="LB5"> <label for="L">Bloque 5</label></br>
+                                                        <input type="checkbox" id="L6" name="L6" value="LB6"> <label for="L">Bloque 6</label></br>
+                                                        <input type="checkbox" id="L7" name="L7" value="LB7"> <label for="L">Bloque 7</label></br>
+                                                        <input type="checkbox" id="L8" name="L8" value="LB8"> <label for="L">Bloque 8</label></br>
+                                                        <input type="checkbox" id="L9" name="L9" value="LB9"> <label for="L">Bloque 9</label></br>
+                                                        <input type="checkbox" id="L10" name="L10" value="LB10"> <label for="L">Bloque 10</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Martes</strong></label></br>
+                                                        <input type="checkbox" id="M1" name="M1" value="MB1"> <label for="M">Bloque 1</label></br>
+                                                        <input type="checkbox" id="M2" name="M2" value="MB2"> <label for="M">Bloque 2</label></br>
+                                                        <input type="checkbox" id="M3" name="M3" value="MB3"> <label for="M">Bloque 3</label></br>
+                                                        <input type="checkbox" id="M4" name="M4" value="MB4"> <label for="M">Bloque 4</label></br>
+                                                        <input type="checkbox" id="M5" name="M5" value="MB5"> <label for="M">Bloque 5</label></br>
+                                                        <input type="checkbox" id="M6" name="M6" value="MB6"> <label for="M">Bloque 6</label></br>
+                                                        <input type="checkbox" id="M7" name="M7" value="MB7"> <label for="M">Bloque 7</label></br>
+                                                        <input type="checkbox" id="M8" name="M8" value="MB8"> <label for="M">Bloque 8</label></br>
+                                                        <input type="checkbox" id="M9" name="M9" value="MB9"> <label for="M">Bloque 9</label></br>
+                                                        <input type="checkbox" id="M10" name="M10" value="MB10"> <label for="M">Bloque 10</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Miercoles</strong></label></br>
+                                                        <input type="checkbox" id="Mi1" name="Mi1" value="MiB1"> <label for="Mi">Bloque 1</label></br>
+                                                        <input type="checkbox" id="Mi2" name="Mi2" value="MiB2"> <label for="Mi">Bloque 2</label></br>
+                                                        <input type="checkbox" id="Mi3" name="Mi3" value="MiB3"> <label for="Mi">Bloque 3</label></br>
+                                                        <input type="checkbox" id="Mi4" name="Mi4" value="MiB4"> <label for="Mi">Bloque 4</label></br>
+                                                        <input type="checkbox" id="Mi5" name="Mi5" value="MiB5"> <label for="Mi">Bloque 5</label></br>
+                                                        <input type="checkbox" id="Mi6" name="Mi6" value="MiB6"> <label for="Mi">Bloque 6</label></br>
+                                                        <input type="checkbox" id="Mi7" name="Mi7" value="MiB7"> <label for="Mi">Bloque 7</label></br>
+                                                        <input type="checkbox" id="Mi8" name="Mi8" value="MiB8"> <label for="Mi">Bloque 8</label></br>
+                                                        <input type="checkbox" id="Mi9" name="Mi9" value="MiB9"> <label for="Mi">Bloque 9</label></br>
+                                                        <input type="checkbox" id="Mi10" name="Mi10" value="MiB10"> <label for="Mi">Bloque 10</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Jueves</strong></label></br>
+                                                        <input type="checkbox" id="J1" name="J1" value="JB1"> <label for="J">Bloque 1</label></br>
+                                                        <input type="checkbox" id="J2" name="J2" value="JB2"> <label for="J">Bloque 2</label></br>
+                                                        <input type="checkbox" id="J3" name="J3" value="JB3"> <label for="J">Bloque 3</label></br>
+                                                        <input type="checkbox" id="J4" name="J4" value="JB4"> <label for="J">Bloque 4</label></br>
+                                                        <input type="checkbox" id="J5" name="J5" value="JB5"> <label for="J">Bloque 5</label></br>
+                                                        <input type="checkbox" id="J6" name="J6" value="JB6"> <label for="J">Bloque 6</label></br>
+                                                        <input type="checkbox" id="J7" name="J7" value="JB7"> <label for="J">Bloque 7</label></br>
+                                                        <input type="checkbox" id="J8" name="J8" value="JB8"> <label for="J">Bloque 8</label></br>
+                                                        <input type="checkbox" id="J9" name="J9" value="JB9"> <label for="J">Bloque 9</label></br>
+                                                        <input type="checkbox" id="J10" name="J10" value="JB10"> <label for="J">Bloque 10</label>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Viernes</strong></label></br>
+                                                        <input type="checkbox" id="V1" name="V1" value="VB1"> <label for="V">Bloque 1</label></br>
+                                                        <input type="checkbox" id="V2" name="V2" value="VB2"> <label for="V">Bloque 2</label></br>
+                                                        <input type="checkbox" id="V3" name="V3" value="VB3"> <label for="V">Bloque 3</label></br>
+                                                        <input type="checkbox" id="V4" name="V4" value="VB4"> <label for="V">Bloque 4</label></br>
+                                                        <input type="checkbox" id="V5" name="V5" value="VB5"> <label for="V">Bloque 5</label></br>
+                                                        <input type="checkbox" id="V6" name="V6" value="VB6"> <label for="V">Bloque 6</label></br>
+                                                        <input type="checkbox" id="V7" name="V7" value="VB7"> <label for="V">Bloque 7</label></br>
+                                                        <input type="checkbox" id="V8" name="V8" value="VB8"> <label for="V">Bloque 8</label></br>
+                                                        <input type="checkbox" id="V9" name="V9" value="VB9"> <label for="V">Bloque 9</label></br>
+                                                        <input type="checkbox" id="V10" name="V10" value="VB10"> <label for="V">Bloque 10</label>
+                                                    </div>
+                                                </div>
+                                                <br/>
                                             <!-- Form actions -->
                                             <div class="form-row ">
                                                 <div class="col-md-6 text-left">
-                                                    <a href="http://localhost:8080/ProfesorAll" class="button">Volver a Profesores</a>
+                                                    <a href="http://localhost:8080/ProfesoresAll" class="button">Volver a Profesores</a>
                                                 </div>
                                                 <div class="col-md-6 text-right">
                                                     <button type="submit" class="button">Guardar Profesor</button >
@@ -300,10 +381,19 @@
         <div class="remodal" data-remodal-id="errornrc">
             <h1 style="color:red"> ¡ Error ! </h1>
             <p>
-                <strong>Ya existe</strong> el NRC de la nueva Asignatura
+                <strong>Ya existe</strong> el Rut ya existe
             </p>
             <br>
             <a style="text-decoration:none" href="http://localhost:8080/Profesor/Nuevo" data-remodal-action="confirm" class="remodal-confirm">OK</a>
+        </div>
+        <!-- Modal Error de NRC -->
+        <div class="remodal" data-remodal-id="errorcurso">
+                <h1 style="color:red"> ¡ Error ! </h1>
+                <p>
+                    <strong>Ya existe</strong> un curso asociado a profesor
+                </p>
+                <br>
+                <a style="text-decoration:none" href="http://localhost:8080/Profesor/Nuevo" data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
     </div>
    

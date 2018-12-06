@@ -17,7 +17,8 @@ def index():
 #===========  Visualizar  ===========
 @route('/ProfesoresAll')
 def profesores():
-    return '<h1>Profesores Pagina!</h1>'
+    resultado=ProfesorAll()
+    return template('ProfesorAll',rows=resultado)
 
 @route('/AsignaturaAll')
 def asignaturas():
@@ -91,12 +92,6 @@ def profesorEliminar(id):
 def asignaturaEliminar(id):
     resultado=AsignaturasDetalle(id)
     return template('AsignaturaEliminar',rows=resultado)
-@route('/Asignatura/EliminarCompleto/<id>')
-def asignaturaEliminarCompleto(id):
-    #funcion para eliminar
-    redirect(url('/Asignatura/Eliminar/'+id) + '#exito')
-
-
 @route('/delete', method="POST")
 def delete():
     obj=[]
@@ -117,7 +112,8 @@ def delete():
 #===========    Crear     ===========
 @route('/Profesor/Nuevo')
 def profesoresCrear():
-    return template('ProfesorNueva')
+    resultado=TodoslosCursos()
+    return template('ProfesorNueva',rows=resultado)
 @route('/profesornuevo', method="POST")
 def process():
     obj=[]
@@ -125,20 +121,62 @@ def process():
     apellido = request.forms.get('apellido')
     curso = request.forms.get('curso')
     rut = request.forms.get('rut')
+    jornada= request.forms.get('jornada')
+    Horario=""
+    for i in range(1,11):
+        l="L"+str(i)
+        bloque1=request.forms.get(l)
+        if(bloque1!=None):
+            bloque1=bloque1+","
+            Horario=Horario + bloque1
+      
+    for i in range(1,11):
+        m="M"+str(i)
+        bloque1=request.forms.get(m)
+        if(bloque1!=None):
+            bloque1=bloque1+","
+            Horario=Horario + bloque1
+       
+    for i in range(1,11):
+        mi="Mi"+str(i)
+        bloque1=request.forms.get(mi)
+        if(bloque1!=None):
+            bloque1=bloque1+","
+            Horario=Horario + bloque1
+        
+    for i in range(1,11):
+        j="J"+str(i)
+        bloque1=request.forms.get(j)
+        if(bloque1!=None):
+            bloque1=bloque1+","
+            Horario=Horario + bloque1
+       
+    for i in range(1,11):
+        v="V"+str(i)
+        bloque1=request.forms.get(v)
+        if(bloque1!=None):
+            bloque1=bloque1+","
+            Horario=Horario + bloque1
+    Horario=Horario[:-1]
+    print(Horario)
     obj.append(nombre)
     obj.append(apellido)
-    obj.append(curso)
     obj.append(rut)
+    obj.append(curso)
+    obj.append(jornada)
+    obj.append(Horario)
   
     opcion=ProfesorCreate(obj)
     if opcion==1: #exito
-        redirect(url('/Profesor/Nuevo') + '#exito')
+        redirect(url('/ProfesoresAll') + '#exito')
     if opcion == 2:          #error en ingreso
         redirect(url('/Profesor/Nuevo') + '#error')
-    if opcion ==3:  #error de nrc
+    if opcion ==3:  #error de rut
         redirect(url('/Profesor/Nuevo') + '#errornrc')
+    if opcion ==4:  #error de curso
+        redirect(url('/Profesor/Nuevo') + '#errorcurso')
         
-    return template('ProfesorNueva')
+    return template('ProfesorAll')
 
 @route('/Asignatura/Nueva')
 def asignaturaCrear():

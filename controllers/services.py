@@ -21,6 +21,17 @@ def run_query(query=''):
     
     return data
 
+#==============  Get Cursos ================
+def CallServiceGetAtributo(Tabla,atributo):
+    query="SELECT "+Tabla+"."+atributo+" FROM "+str(Tabla)+""
+    data = run_query(query)
+    error=[]
+    if data==error:
+       return error
+
+    else:
+        return data
+
 #==============  Get ================
 def CallServiceGet(Tabla):
     query="SELECT * FROM "+str(Tabla)+""
@@ -54,11 +65,44 @@ def CallServiceGetNRC(Tabla,nrc):
     else:
         return data
 
+#==============  GetRut ================
+def CallServiceGetRut(Tabla,rut):
+    query="SELECT * FROM "+str(Tabla)+" WHERE rut = "+str(rut)+""
+    data = run_query(query)
+    #print("data",data)
+    error=[]
+    if data==error:
+        return error
 
+    else:
+        return data
+#==============  GetCurso ================
+def CallServiceGetCurso(Tabla,curso):
+    query="SELECT * FROM "+str(Tabla)+" WHERE curso = '"+str(curso)+"'"
+    data = run_query(query)
+    #print("data",data)
+    error=[]
+    if data==error:
+        return error
+
+    else:
+        return data
 #==============  SaveASignatura ================
 def CallServiceSaveAsignatura(Tabla,obj):
     insert= "INSERT INTO "+Tabla+" (`asg_nrc`, `asg_nombre`, `asg_carrera`, `asg_semestre`, `id`)"
     insert2= " VALUES ('"+obj[0] +"','"+obj[1]+"','"+obj[2]+"','"+obj[3]+"',NULL)"
+    query=insert+insert2
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error 
+
+    else:
+        return data
+#==============  SaveProfesor ================
+def CallServiceSaveProfesor(Tabla,obj):
+    insert="INSERT INTO "+Tabla+" (`nombre`, `apellido`, `rut`, `curso`, `jornada`, `horario`)"
+    insert2= " VALUES ('"+obj[0] +"','"+obj[1]+"','"+obj[2]+"','"+obj[3]+"','"+obj[4]+"','"+obj[5]+"')"
     query=insert+insert2
     data = run_query(query)
     error=[]

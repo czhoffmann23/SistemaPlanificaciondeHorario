@@ -1,7 +1,14 @@
 from services import *
 
+def TodoslosCursos():
+    data=CallServiceGetAtributo("asignatura","asg_nombre")
+    error=[]
+    if data==error:
+        print("no llego")
+    else:
+        return data
 def ProfesorAll():
-    data=CallServiceGet("Profesor")
+    data=CallServiceGet("profesor")
     error=[]
     if data==error:
        print("no llego")
@@ -10,7 +17,7 @@ def ProfesorAll():
         return data
 
 def ProfesorDetalle(rut):
-    data=CallServiceGetRut("Profesor",rut)
+    data=CallServiceGetRut("profesor",rut)
     error=[]
     if data==error:
        print("no llego")
@@ -19,27 +26,34 @@ def ProfesorDetalle(rut):
         return data
 
 def ProfesorCreate(obj):
-    rut = obj[3]
+    rut = obj[2]
+    curso= obj[3]
     error=[]
-    data_nrc=CallServiceGetRut("Profesor",rut)
-    if data_nrc==error: #no existe nrc
-        data_obj=CallServiceSaveProfesor("Profesor",obj)
-        if data_obj == None:
-                return 2
-        else:
+    data_rut=CallServiceGetRut("profesor",rut)
+    if data_rut==error: #no existe rut
+        error_curso=[]
+        data_curso=CallServiceGetCurso("profesor",curso)
+        if data_curso==error_curso:
+            data_obj=CallServiceSaveProfesor("profesor",obj)
+            if data_obj == None:
                 return 1
-    else: #existe nrc
+            else:
+                return 2
+        else: #existe curso
+            return 4
+        
+    else: #existe rut
         return 3
 def ProfesorUpdate(obj):
     error=[]
-    data_obj=CallServiceUpdateProfesor("Profesor",obj)
+    data_obj=CallServiceUpdateProfesor("profesor",obj)
     if data_obj == None:
         return 2
     else:
         return 1
     
 def ProfesorDelete(id):
-    data_nrc=CallServiceDeleteProf("Profesor",id)
+    data_nrc=CallServiceDeleteProf("profesor",id)
     if data_nrc == None:
         return 2
     else:

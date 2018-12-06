@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="/staticss/bootstrap.min.css">
         <link rel="stylesheet" href="/staticss/font-awesome.min.css">
         <link rel="stylesheet" href="/staticss/metisMenu.css">
+        
+      
        
         <link rel="stylesheet" href="/staticss/slicknav.min.css">
          
@@ -120,13 +122,13 @@
                                     <ul class="collapse">
                                         <li class="active"><a href="index2.html">Todas las Asignaturas</a></li>
                                     </ul>
-                                    <a href="http://localhost:8080/ProfesoresAll" ><i class="icon-dashboard"></i><span>Profesores</span></a>
+                                    <a href="#" ><i class="icon-dashboard"></i><span>Profesores</span></a>
                                      <ul class="collapse">
-                                        <li><a href="index2.html">Todos los Profesores</a></li>
+                                        <li><a href="http://localhost:8080/ProfesoresAll">Todos los Profesores</a></li>
                                     </ul>
-                                    <a href="http://localhost:8080/HorariosAll" ><i class="icon-dashboard"></i><span>Horarios</span></a>
+                                    <a href="#" ><i class="icon-dashboard"></i><span>Horarios</span></a>
                                     <ul class="collapse">
-                                        <li ><a href="index.html">Todos los Horarios</a></li>
+                                        <li ><a href="http://localhost:8080/HorariosAll">Todos los Horarios</a></li>
                                     </ul>
                                 </li>
                                
@@ -179,27 +181,33 @@
                                         
                                         
                                     </div>
-                                    <div class="cuerpo">
-                                        <table align="center">
-                                            <tr >
-                                              <th>NRC</th>
-                                              <th>Nombre Asignatura</th>
-                                              <th>Carrera</th>
-                                              <th>Semestre</th>
-                                              %for r in rows:
-                                                  <tr>
-                                                      <td>{{r[0]}}</td>
-                                                      <td>{{r[1]}}</td>
-                                                      <td>{{r[2]}}</td>
-                                                      <td>{{r[3]}}</td>
-                                                      <td >
-                                                          <a href="http://localhost:8080/Asignatura/Detalle/{{r[0]}}"><i class="fa fa-eye" style="font-size:18px;padding-left: 13px;"></i></a> 
-                                                          <a href="http://localhost:8080/Asignatura/Modificar/{{r[0]}}"><i class="fa fa-pencil" style="font-size:18px;padding-left: 13px;"></i></a>
-                                                          <a href="http://localhost:8080/Asignatura/Eliminar/{{r[0]}}"><i class="fa fa-trash" style="font-size:18px;padding-left: 13px;"></i></a>  
-                                                      </td>
-                                                  </tr>
-                                                  
-                                               %end
+                                    <div class="cuerpo" >
+                                        <table id="example" class="table table-striped table-bordered" align="center">
+                                            <thead>
+                                                <tr>
+                                                    <th>NRC</th>
+                                                    <th>Nombre Asignatura</th>
+                                                    <th>Carrera</th>
+                                                    <th>Semestre</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            %for r in rows:
+                                                <tr>
+                                                    <td>{{r[0]}}</td>
+                                                    <td>{{r[1]}}</td>
+                                                    <td>{{r[2]}}</td>
+                                                    <td>{{r[3]}}</td>
+                                                    <td >
+                                                        <a href="http://localhost:8080/Asignatura/Detalle/{{r[0]}}"><i class="fa fa-eye" style="font-size:18px;padding-left: 13px;"></i></a> 
+                                                        <a href="http://localhost:8080/Asignatura/Modificar/{{r[0]}}"><i class="fa fa-pencil" style="font-size:18px;padding-left: 13px;"></i></a>
+                                                        <a href="http://localhost:8080/Asignatura/Eliminar/{{r[0]}}"><i class="fa fa-trash" style="font-size:18px;padding-left: 13px;"></i></a>  
+                                                    </td>
+                                                </tr>
+                                                
+                                            %end
+                                            </tbody>
+                                            
                                           </table>
                                     </div>
                         </div>
@@ -220,6 +228,10 @@
         </div>
 
         <script>
+            // Funcion tabla
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
             // Funcion para evitar que cierre al apretar fuera del boton
           $(document).ready(function () {
             $('.remodal-wrapper').unbind('click.remodal');
@@ -287,6 +299,9 @@
       <script type="text/javascript" src="/staticjs/ramio-custom.js"></script>
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzp2JuNLNAX0b0LL-MinLjicuHJ7czm-w"></script>
      
+
+     
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
       <script src="/staticjs/jquery-2.2.4.min.js"></script>     
       <!-- Load Scripts End-->
       <script src="/staticjs/popper.min.js"></script>
