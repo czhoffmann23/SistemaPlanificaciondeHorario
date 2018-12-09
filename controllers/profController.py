@@ -19,11 +19,25 @@ def ProfesorAll():
 def ProfesorDetalle(rut):
     data=CallServiceGetSomething("profesor","rut",rut)
     error=[]
+    datos=[]
     if data==error:
        print("no llego")
 
     else:
-        return data
+        datos.append(data[0][0])
+        datos.append(data[0][1])
+        datos.append(data[0][2])
+        datos.append(data[0][3])
+        datos.append(data[0][4])
+        hor=[]
+        hor_fin=""
+        hor=data[0][5].split(',')
+        for i in hor:
+            if i!='0':
+                hor_fin=hor_fin+i+' , '
+        hor_fin=hor_fin[:-1]
+        datos.append(hor_fin)
+        return datos
 
 def ProfesorCreate(obj):
     rut = obj[2]

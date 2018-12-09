@@ -175,7 +175,6 @@ def process():
         else:
             Horario=Horario + "0,"
     Horario=Horario[:-1]
-    print(Horario)
     obj.append(nombre)
     obj.append(apellido)
     obj.append(rut)

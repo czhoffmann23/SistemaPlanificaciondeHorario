@@ -166,7 +166,7 @@
                                         <div class="form-row">
                                             <label class="col-md-3 control-label" for="nombre">Nombre de Profesor</label>
                                             <div class="col-md-9">
-                                                <input id="nombre" name="nombre" value="{{rows[0][0]}}" readonly=”readonly”  type="text" placeholder="Nombre de Asignatura" class="form-control" required>
+                                                <input id="nombre" name="nombre" value="{{rows[0]}}" readonly=”readonly”  type="text" placeholder="Nombre de Asignatura" class="form-control" required>
                                                 <div class="invalid-feedback">
                                                     Porfavor ingresa asignatura valida.
                                                 </div>
@@ -177,7 +177,7 @@
                                         <div class="form-row ">
                                             <label class="col-md-3 control-label" for="apellido">Apellido de Profesor</label>
                                             <div class="col-md-9">
-                                                    <input id="apellido" name="apellido" value="{{rows[0][1]}}" readonly=”readonly”  type="text" placeholder="Semestre" class="form-control" required>
+                                                    <input id="apellido" name="apellido" value="{{rows[1]}}" readonly=”readonly”  type="text" placeholder="Semestre" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Porfavor ingresa apellido valida.
                                                     </div>
@@ -188,7 +188,7 @@
                                         <div class="form-row ">
                                             <label class="col-md-3 control-label" for="rut">Rut</label>
                                             <div class="col-md-9">
-                                                    <input id="rut" name="rut" value="{{rows[0][2]}}" readonly=”readonly”  type="text" placeholder="Carrera" class="form-control" required>
+                                                    <input id="rut" name="rut" value="{{rows[2]}}" readonly=”readonly”  type="text" placeholder="Carrera" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Porfavor ingresa rut valido.
                                                     </div>
@@ -199,18 +199,29 @@
                                         <div class="form-row ">
                                             <label class="col-md-3 control-label" for="curso">Curso</label>
                                             <div class="col-md-9">
-                                                <input id="curso" name="curso" value="{{rows[0][3]}}" readonly=”readonly”   type="text" placeholder="NRC" class="form-control" required>
+                                                <input id="curso" name="curso" value="{{rows[3]}}" readonly=”readonly”   type="text" placeholder="NRC" class="form-control" required>
                                                 <div class="invalid-feedback">
                                                     Porfavor ingresa curso valido.
                                                 </div>
                                             </div>
                                         </div>
                                         <br/>
-                                         <!-- Curso input-->
+                                         <!-- Jornada input-->
                                          <div class="form-row ">
                                             <label class="col-md-3 control-label" for="jornada">Jornada</label>
                                             <div class="col-md-9">
-                                                <input id="jornada" name="jornada" value="{{rows[0][4]}}" readonly=”readonly”   type="text" placeholder="NRC" class="form-control" required>
+                                                <input id="jornada" name="jornada" value="{{rows[4]}}" readonly=”readonly”   type="text" placeholder="NRC" class="form-control" required>
+                                                <div class="invalid-feedback">
+                                                    Porfavor ingresa jornada valido.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br/>
+                                          <!-- Horario input-->
+                                          <div class="form-row ">
+                                            <label class="col-md-3 control-label" for="horario">Horario</label>
+                                            <div class="col-md-9">
+                                                <input id="horario" name="horario" value="{{rows[5]}}" readonly=”readonly”   type="text" placeholder="NRC" class="form-control" required>
                                                 <div class="invalid-feedback">
                                                     Porfavor ingresa jornada valido.
                                                 </div>
