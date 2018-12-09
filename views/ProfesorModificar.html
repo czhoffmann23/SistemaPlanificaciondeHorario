@@ -88,8 +88,7 @@
 </head>
 
 <body>
-
-    <!-- Loader End-->
+      <!-- Loader End-->
       <!-- page container area start -->
       <div class="page-container">
         <!-- sidebar menu area start -->
@@ -132,10 +131,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Asignaturas</h4>
+                            <h4 class="page-title pull-left">Profesores</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="#">Home</a></li>
-                                <li><span>Todas las Asignaturas</span></li>
+                                <li><span>Todas los Profesores</span></li>
                             </ul>
                         </div>
                     </div>
@@ -168,75 +167,351 @@
                                             <div class="form-row">
                                                 <label class="col-md-3 control-label" for="nombre">Nombre de Profesor</label>
                                                 <div class="col-md-9">
-                                                    <input id="nombre" name="nombre" type="text" value="{{rows[0][0]}}"  placeholder="Nombre de Profesor" class="form-control" required>
+                                                    <input id="nombre" name="nombre" type="text" value="{{rows[0]}}" placeholder="Nombre de Profesor" class="form-control" required>
                                                     <div class="invalid-feedback">
-                                                        Porfavor ingresa nombre valida.
+                                                        Porfavor ingresa nombre valido.
                                                     </div>
                                                 </div>
                                             </div>
                                             <br/>
-                                            <!-- Apellido input-->
-                                            <div class="form-row ">
+                                             <!-- Apellido input-->
+                                            <div class="form-row">
                                                 <label class="col-md-3 control-label" for="apellido">Apellido de Profesor</label>
                                                 <div class="col-md-9">
-                                                    <input id="apellido" name="apellido"  value={{rows[0][2]}} type="text" placeholder="Apellido de Profesor" class="form-control" required>
+                                                    <input id="apellido" name="apellido" type="text" value="{{rows[1]}}" placeholder="Apellido de Profesor" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Porfavor ingresa apellido valido.
                                                     </div>
                                                 </div>
                                             </div>
                                             <br/>
-                                            <!-- Semestre input-->
-                                            <div class="form-row ">
-                                                <label class="col-md-3 control-label" for="curso">Curso</label>
-                                                <div class="col-md-9">
-                                                        <select id="semestre" name="curso" class="form-control">
-                                                            % if rows[0][4]=='Semestre 1':
-                                                            <option value="Curso 1"  selected="true">Curso 1</option>
-                                                            % else:
-                                                            <option value="Curso 1"  >Curso 1</option>
-                                                            % end
-                                                            % if rows[0][4]=='Curso 2':
-                                                            <option value="Curso 2"  selected="true">Curso 2</option>
-                                                            % else:
-                                                            <option value="Curso 2"  >Curso 2</option>
-                                                            % end
-                                                            % if rows[0][4]=='Curso 3':
-                                                            <option value="Curso 3"  selected="true">Curso 3</option>
-                                                            % else:
-                                                            <option value="Curso 3"  >Curso 3</option>
-                                                            % end
-                                                            % if rows[0][4]=='Curso 4':
-                                                            <option value="Curso 4"  selected="true">Curso 4</option>
-                                                            % else:
-                                                            <option value="Curso 4"  >Curso 4</option>
-                                                            % end
-                                                           
-                                                        </select>
-                                                </div>
-                                            </div>
-                                            <br/>
-                                         
-                                            <!-- NRC input-->
+                                            <!-- Rut input-->
                                             <div class="form-row ">
                                                 <label class="col-md-3 control-label" for="rut">Rut</label>
                                                 <div class="col-md-9">
-                                                    <input id="rut" name="rut" pattern="[0-9]+" value={{rows[0][3]}} type="text" placeholder="NRC" class="form-control" required>
+                                                    <input id="rut" name="rut" pattern="[0-9]+" type="text" readonly=”readonly” value="{{rows[2]}}" placeholder="111111111" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Porfavor ingresa rut valido.
                                                     </div>
                                                 </div>
                                             </div>
                                             <br/>
+                                            <!-- Curso input-->
+                                            <div class="form-row ">
+                                                <label class="col-md-3 control-label" for="curso">Curso</label>
+                                                <div class="col-md-9">
+                                                    <select id="curso" name="curso" class="form-control">
+                                                        %for r in rows[5]:
+                                                            % if r[0]==rows[3]:
+                                                                <option value="{{r[0]}}" selected="true">{{r[0]}}</option>
+                                                            % else:
+                                                                <option value="{{r[0]}}" >{{r[0]}}</option>
+                                                            % end
+                                                        %end
+                                                    </select>
+                                                   
+                                                    
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <!-- Jornada input-->
+                                            <div class="form-row ">
+                                                <label class="col-md-3 control-label" for="jornada">Jornada</label>
+                                                <div class="col-md-9">
+                                                <select id="jornada" name="jornada" class="form-control">
+                                                    % if rows[4]=='Part-time':
+                                                        <option value="Part-time" selected="true">Part-time</option>
+                                                    % else:
+                                                        <option value="Part-time">Part-time</option>
+                                                    % end
+                                                    % if rows[4]=='Full-time':
+                                                    <option value="Full-time" selected="true">Full-time</option>
+                                                    % else:
+                                                        <option value="Full-time">Full-time</option>
+                                                    % end
+                                                </select>
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <!-- Jornada input-->
+                                            <div class="form-row ">
+                                                    <label class="col-md-2 control-label" for="jornada">Horario</label>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Lunes</strong></label></br>
+                                                        % if rows[6]=='LB1':
+                                                            <input type="checkbox" id="L1" name="L1" value="LB1" checked> <label for="L">Bloque 1</label></br>
+                                                        % else:
+                                                            <input type="checkbox" id="L1" name="L1" value="LB1"> <label for="L">Bloque 1</label></br>
+                                                        % end
+                                                        % if rows[7]=='LB2':
+                                                        <input type="checkbox" id="L2" name="L2" value="LB2" checked> <label for="L">Bloque 2</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L2" name="L2" value="LB2" > <label for="L">Bloque 2</label></br>
+                                                        % end
+                                                        % if rows[8]=='LB3':
+                                                        <input type="checkbox" id="L3" name="L3" value="LB3" checked> <label for="L">Bloque 3</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L3" name="L3" value="LB3" > <label for="L">Bloque 3</label></br>
+                                                        % end
+                                                        % if rows[9]=='LB4':
+                                                        <input type="checkbox" id="L4" name="L4" value="LB4" checked> <label for="L">Bloque 4</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L4" name="L4" value="LB4" > <label for="L">Bloque 4</label></br>
+                                                        % end
+                                                        % if rows[10]=='LB5':
+                                                        <input type="checkbox" id="L5" name="L5" value="LB5" checked> <label for="L">Bloque 5</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L5" name="L5" value="LB5" > <label for="L">Bloque 5</label></br>
+                                                        % end
+                                                        % if rows[11]=='LB6':
+                                                        <input type="checkbox" id="L6" name="L6" value="LB6" checked> <label for="L">Bloque 6</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L6" name="L6" value="LB6" > <label for="L">Bloque 6</label></br>
+                                                        % end
+                                                        % if rows[12]=='LB7':
+                                                        <input type="checkbox" id="L7" name="L7" value="LB7" checked> <label for="L">Bloque 7</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L7" name="L7" value="LB7" > <label for="L">Bloque 7</label></br>
+                                                        % end
+                                                        % if rows[13]=='LB8':
+                                                        <input type="checkbox" id="L8" name="L8" value="LB8" checked> <label for="L">Bloque 8</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L8" name="L8" value="LB8" > <label for="L">Bloque 8</label></br>
+                                                        % end
+                                                        % if rows[14]=='LB9':
+                                                        <input type="checkbox" id="L9" name="L9" value="LB9" checked> <label for="L">Bloque 9</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="L9" name="L9" value="LB9" > <label for="L">Bloque 9</label></br>
+                                                        % end
+                                                        % if rows[15]=='LB10':
+                                                        <input type="checkbox" id="L10" name="L10" value="LB10" checked> <label for="L">Bloque 10</label>
+                                                        % else:
+                                                        <input type="checkbox" id="L10" name="L10" value="LB10" > <label for="L">Bloque 10</label>
+                                                        % end
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Martes</strong></label></br>
+                                                        % if rows[16]=='MB1':
+                                                        <input type="checkbox" id="M1" name="M1" value="MB1" checked> <label for="M">Bloque 1</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M1" name="M1" value="MB1"> <label for="M">Bloque 1</label></br>
+                                                        % end
+                                                        % if rows[17]=='MB2':
+                                                        <input type="checkbox" id="M2" name="M2" value="MB2" checked> <label for="M">Bloque 2</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M2" name="M2" value="MB2" > <label for="M">Bloque 2</label></br>
+                                                        % end
+                                                        % if rows[18]=='MB3':
+                                                        <input type="checkbox" id="M3" name="M3" value="MB3" checked> <label for="M">Bloque 3</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M3" name="M3" value="MB3" > <label for="M">Bloque 3</label></br>
+                                                        % end
+                                                        % if rows[19]=='MB4':
+                                                        <input type="checkbox" id="M4" name="M4" value="MB4" checked> <label for="M">Bloque 4</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M4" name="M4" value="MB4" > <label for="M">Bloque 4</label></br>
+                                                        % end
+                                                        % if rows[20]=='MB5':
+                                                        <input type="checkbox" id="M5" name="M5" value="MB5" checked> <label for="M">Bloque 5</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M5" name="M5" value="MB5" > <label for="M">Bloque 5</label></br>
+                                                        % end
+                                                        % if rows[21]=='MB6':
+                                                        <input type="checkbox" id="M6" name="M6" value="MB6" checked> <label for="M">Bloque 6</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M6" name="M6" value="MB6" > <label for="M">Bloque 6</label></br>
+                                                        % end
+                                                        % if rows[22]=='MB7':
+                                                        <input type="checkbox" id="M7" name="M7" value="MB7" checked> <label for="M">Bloque 7</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M7" name="M7" value="MB7" > <label for="M">Bloque 7</label></br>
+                                                        % end
+                                                        % if rows[23]=='MB8':
+                                                        <input type="checkbox" id="M8" name="M8" value="MB8" checked> <label for="M">Bloque 8</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M8" name="M8" value="MB8" > <label for="M">Bloque 8</label></br>
+                                                        % end
+                                                        % if rows[24]=='MB9':
+                                                        <input type="checkbox" id="M9" name="M9" value="MB9" checked> <label for="M">Bloque 9</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="M9" name="M9" value="MB9" > <label for="M">Bloque 9</label></br>
+                                                        % end
+                                                        % if rows[25]=='MB10':
+                                                        <input type="checkbox" id="M10" name="M10" value="MB10" checked> <label for="M">Bloque 10</label>
+                                                        % else:
+                                                        <input type="checkbox" id="M10" name="M10" value="MB10" > <label for="M">Bloque 10</label>
+                                                        % end
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Miercoles</strong></label></br>
+                                                        % if rows[26]=='MiB1':
+                                                        <input type="checkbox" id="Mi1" name="Mi1" value="MiB1" checked> <label for="Mi">Bloque 1</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi1" name="Mi1" value="MiB1"> <label for="Mi">Bloque 1</label></br>
+                                                        % end
+                                                        % if rows[27]=='MiB2':
+                                                        <input type="checkbox" id="Mi2" name="Mi2" value="MiB2" checked> <label for="Mi">Bloque 2</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi2" name="Mi2" value="MiB2" > <label for="Mi">Bloque 2</label></br>
+                                                        % end
+                                                        % if rows[28]=='MiB3':
+                                                        <input type="checkbox" id="Mi3" name="Mi3" value="MiB3" checked> <label for="Mi">Bloque 3</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi3" name="Mi3" value="MiB3" > <label for="Mi">Bloque 3</label></br>
+                                                        % end
+                                                        % if rows[29]=='MiB4':
+                                                        <input type="checkbox" id="Mi4" name="Mi4" value="MiB4" checked> <label for="Mi">Bloque 4</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi4" name="Mi4" value="MiB4" > <label for="Mi">Bloque 4</label></br>
+                                                        % end
+                                                        % if rows[30]=='MiB5':
+                                                        <input type="checkbox" id="Mi5" name="Mi5" value="MiB5" checked> <label for="Mi">Bloque 5</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi5" name="Mi5" value="MiB5" > <label for="Mi">Bloque 5</label></br>
+                                                        % end
+                                                        % if rows[31]=='MiB6':
+                                                        <input type="checkbox" id="Mi6" name="Mi6" value="MiB6" checked> <label for="Mi">Bloque 6</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi6" name="Mi6" value="MiB6" > <label for="Mi">Bloque 6</label></br>
+                                                        % end
+                                                        % if rows[32]=='MiB7':
+                                                        <input type="checkbox" id="Mi7" name="Mi7" value="MiB7" checked> <label for="Mi">Bloque 7</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi7" name="Mi7" value="MiB7" > <label for="Mi">Bloque 7</label></br>
+                                                        % end
+                                                        % if rows[33]=='MiB8':
+                                                        <input type="checkbox" id="Mi8" name="Mi8" value="MiB8" checked> <label for="Mi">Bloque 8</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi8" name="Mi8" value="MiB8" > <label for="Mi">Bloque 8</label></br>
+                                                        % end
+                                                        % if rows[34]=='MiB9':
+                                                        <input type="checkbox" id="Mi9" name="Mi9" value="MiB9" checked> <label for="Mi">Bloque 9</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi9" name="Mi9" value="MiB9" > <label for="Mi">Bloque 9</label></br>
+                                                        % end
+                                                        % if rows[35]=='MiB10':
+                                                        <input type="checkbox" id="Mi10" name="Mi10" value="MiB10" checked> <label for="Mi">Bloque 10</label>
+                                                        % else:
+                                                        <input type="checkbox" id="Mi10" name="Mi10" value="MiB10" > <label for="Mi">Bloque 10</label>
+                                                        % end
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Jueves</strong></label></br>
+                                                        % if rows[36]=='JB1':
+                                                        <input type="checkbox" id="J1" name="J1" value="JB1" checked> <label for="J">Bloque 1</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J1" name="J1" value="JB1"> <label for="J">Bloque 1</label></br>
+                                                        % end
+                                                        % if rows[37]=='JB2':
+                                                        <input type="checkbox" id="J2" name="J2" value="JB2" checked> <label for="J">Bloque 2</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J2" name="J2" value="JB2" > <label for="J">Bloque 2</label></br>
+                                                        % end
+                                                        % if rows[38]=='JB3':
+                                                        <input type="checkbox" id="J3" name="J3" value="JB3" checked> <label for="J">Bloque 3</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J3" name="J3" value="JB3" > <label for="J">Bloque 3</label></br>
+                                                        % end
+                                                        % if rows[39]=='JB4':
+                                                        <input type="checkbox" id="J4" name="J4" value="JB4" checked> <label for="J">Bloque 4</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J4" name="J4" value="JB4" > <label for="J">Bloque 4</label></br>
+                                                        % end
+                                                        % if rows[40]=='JB5':
+                                                        <input type="checkbox" id="J5" name="J5" value="JB5" checked> <label for="J">Bloque 5</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J5" name="J5" value="JB5" > <label for="J">Bloque 5</label></br>
+                                                        % end
+                                                        % if rows[41]=='JB6':
+                                                        <input type="checkbox" id="J6" name="J6" value="JB6" checked> <label for="J">Bloque 6</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J6" name="J6" value="JB6" > <label for="J">Bloque 6</label></br>
+                                                        % end
+                                                        % if rows[42]=='JB7':
+                                                        <input type="checkbox" id="J7" name="J7" value="JB7" checked> <label for="J">Bloque 7</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J7" name="J7" value="JB7" > <label for="J">Bloque 7</label></br>
+                                                        % end
+                                                        % if rows[43]=='JB8':
+                                                        <input type="checkbox" id="J8" name="J8" value="JB8" checked> <label for="J">Bloque 8</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J8" name="J8" value="JB8" > <label for="J">Bloque 8</label></br>
+                                                        % end
+                                                        % if rows[44]=='JB9':
+                                                        <input type="checkbox" id="J9" name="J9" value="JB9" checked> <label for="J">Bloque 9</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="J9" name="J9" value="JB9" > <label for="J">Bloque 9</label></br>
+                                                        % end
+                                                        % if rows[45]=='JB10':
+                                                        <input type="checkbox" id="J10" name="J10" value="JB10" checked> <label for="J">Bloque 10</label>
+                                                        % else:
+                                                        <input type="checkbox" id="J10" name="J10" value="JB10" > <label for="J">Bloque 10</label>
+                                                        % end
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <label ><strong>Viernes</strong></label></br>
+                                                        % if rows[46]=='VB1':
+                                                        <input type="checkbox" id="V1" name="V1" value="VB1" checked> <label for="V">Bloque 1</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V1" name="V1" value="VB1"> <label for="V">Bloque 1</label></br>
+                                                        % end
+                                                        % if rows[47]=='VB2':
+                                                        <input type="checkbox" id="V2" name="V2" value="VB2" checked> <label for="V">Bloque 2</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V2" name="V2" value="VB2" > <label for="V">Bloque 2</label></br>
+                                                        % end
+                                                        % if rows[48]=='VB3':
+                                                        <input type="checkbox" id="V3" name="V3" value="VB3" checked> <label for="V">Bloque 3</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V3" name="V3" value="VB3" > <label for="V">Bloque 3</label></br>
+                                                        % end
+                                                        % if rows[49]=='VB4':
+                                                        <input type="checkbox" id="V4" name="V4" value="VB4" checked> <label for="V">Bloque 4</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V4" name="V4" value="VB4" > <label for="V">Bloque 4</label></br>
+                                                        % end
+                                                        % if rows[50]=='VB5':
+                                                        <input type="checkbox" id="V5" name="V5" value="VB5" checked> <label for="V">Bloque 5</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V5" name="V5" value="VB5" > <label for="V">Bloque 5</label></br>
+                                                        % end
+                                                        % if rows[51]=='VB6':
+                                                        <input type="checkbox" id="V6" name="V6" value="VB6" checked> <label for="V">Bloque 6</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V6" name="V6" value="VB6" > <label for="V">Bloque 6</label></br>
+                                                        % end
+                                                        % if rows[52]=='VB7':
+                                                        <input type="checkbox" id="V7" name="V7" value="VB7" checked> <label for="V">Bloque 7</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V7" name="V7" value="VB7" > <label for="V">Bloque 7</label></br>
+                                                        % end
+                                                        % if rows[53]=='VB8':
+                                                        <input type="checkbox" id="V8" name="V8" value="VB8" checked> <label for="V">Bloque 8</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V8" name="V8" value="VB8" > <label for="V">Bloque 8</label></br>
+                                                        % end
+                                                        % if rows[54]=='VB9':
+                                                        <input type="checkbox" id="V9" name="V9" value="VB9" checked> <label for="V">Bloque 9</label></br>
+                                                        % else:
+                                                        <input type="checkbox" id="V9" name="V9" value="VB9" > <label for="V">Bloque 9</label></br>
+                                                        % end
+                                                        % if rows[55]=='VB10':
+                                                        <input type="checkbox" id="V10" name="V10" value="VB10" checked> <label for="V">Bloque 10</label>
+                                                        % else:
+                                                        <input type="checkbox" id="V10" name="V10" value="VB10" > <label for="V">Bloque 10</label>
+                                                        % end
+                                                    </div>
+                                                </div>
+                                                <br/>
                                             <!-- Form actions -->
                                             <div class="form-row ">
                                                 <div class="col-md-6 text-left">
-                                                    <a href="http://localhost:8080/AsignaturaAll" class="button">Volver a Asignaturas</a>
+                                                    <a href="http://localhost:8080/ProfesoresAll" class="button">Volver a Profesores</a>
                                                 </div>
                                                 <div class="col-md-6 text-right">
-                                                    <button type="submit" class="button">Guardar Asignatura</button >
-                                        </div>
-                                    </div>
+                                                    <button type="submit" class="button">Guardar Profesor</button >
+                                                </div>
+                                            </div>
                                     </fieldset>
                                 </form>
                                 <script>
@@ -280,24 +555,50 @@
             </div>
         </footer>
         <!-- footer area end-->
+        <script>
+            // Funcion para evitar que cierre al apretar fuera del boton
+          $(document).ready(function () {
+            $('.remodal-wrapper').unbind('click.remodal');
+             });
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+        </script>
+       
+        
+      
     </div>
-
-   <!-- Load Scripts Start-->
-   <script type="text/javascript" src="/staticjs/libs.min.js"></script>
-   <script type="text/javascript" src="/staticjs/ramio-custom.js"></script>
-   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzp2JuNLNAX0b0LL-MinLjicuHJ7czm-w"></script>
-  
-   <script src="/staticjs/jquery-2.2.4.min.js"></script>     
-   <!-- Load Scripts End-->
-   <script src="/staticjs/popper.min.js"></script>
-   <script src="/staticjs/bootstrap.min.js"></script>
-   <script src="/staticjs/metisMenu.min.js"></script>
-   <script src="/staticjs/jquery.slimscroll.min.js"></script>
-   <script src="/staticjs/jquery.slicknav.min.js"></script>
-     <!-- others plugins -->
-     <script src="/staticjs/plugins.js"></script>
-     <script src="/staticjs/scripts.js"></script>
+   
+      <!-- Load Scripts Start-->
+      <script type="text/javascript" src="/staticjs/libs.min.js"></script>
+      <script type="text/javascript" src="/staticjs/ramio-custom.js"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzp2JuNLNAX0b0LL-MinLjicuHJ7czm-w"></script>
      
+      <script src="/staticjs/jquery-2.2.4.min.js"></script>     
+      <!-- Load Scripts End-->
+      <script src="/staticjs/popper.min.js"></script>
+      <script src="/staticjs/bootstrap.min.js"></script>
+      <script src="/staticjs/metisMenu.min.js"></script>
+      <script src="/staticjs/jquery.slimscroll.min.js"></script>
+      <script src="/staticjs/jquery.slicknav.min.js"></script>
+        <!-- others plugins -->
+        <script src="/staticjs/plugins.js"></script>
+        <script src="/staticjs/scripts.js"></script>
 </body>
 
 </html>

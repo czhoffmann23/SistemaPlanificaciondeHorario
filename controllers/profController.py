@@ -38,7 +38,27 @@ def ProfesorDetalle(rut):
         hor_fin=hor_fin[:-1]
         datos.append(hor_fin)
         return datos
+def ProfesorDetalleUno(rut):
+    data=CallServiceGetSomething("profesor","rut",rut)
+    error=[]
+    datos=[]
+    if data==error:
+       print("no llego")
 
+    else:
+        cursos=CallServiceGetAtributo("asignatura","asg_nombre")
+        datos.append(data[0][0])
+        datos.append(data[0][1])
+        datos.append(data[0][2])
+        datos.append(data[0][3])
+        datos.append(data[0][4])
+        datos.append(cursos)
+        hor=[]
+        hor=data[0][5].split(',')
+        for i in hor:
+            datos.append(i)
+        return datos
+        
 def ProfesorCreate(obj):
     rut = obj[2]
     curso= obj[3]
@@ -59,13 +79,27 @@ def ProfesorCreate(obj):
     else: #existe rut
         return 3
 def ProfesorUpdate(obj):
-    error=[]
-    data_obj=CallServiceUpdateProfesor("profesor",obj)
-    if data_obj == None:
-        return 2
-    else:
-        return 1
-    
+    rut=obj[2]
+    curso= obj[3]
+    error_curso=[]
+    data_curso=CallServiceGetCurso("profesor",curso)
+    if data_curso==error_curso:
+        data_obj=CallServiceUpdateProfesor("profesor",obj)
+        if data_obj == None:
+            return 1
+        else:
+            return 2
+    else: #existe curso
+        if data_curso[0][2] == rut:
+            data_obj=CallServiceUpdateProfesor("profesor",obj)
+            if data_obj == None:
+                return 1
+            else:
+                return 2
+        else:
+            return 4
+   
+   
 def ProfesorDelete(id):
     data_nrc=CallServiceDeleteProf("profesor",id)
     if data_nrc == None:

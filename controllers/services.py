@@ -126,6 +126,20 @@ def CallServiceUpdateAsignatura(Tabla,obj):
 
     else:
         return data
+#==============  UpdateProfesor ================
+def CallServiceUpdateProfesor(Tabla,obj):
+    print("obj servicio", obj)
+    insert= "UPDATE "+Tabla+" SET `nombre`='"+obj[0]+"',`apellido`='"+obj[1]+"',`rut`='"+obj[2]+"',`curso`='"+obj[3]+"',`jornada`='"+obj[4]+"',`horario`='"+obj[5]+"'"
+    insert2= " WHERE rut = '"+obj[2]+"'"
+    query=insert+insert2
+    print(query)
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error 
+
+    else:
+        return data
 #==============  DeleteAsignatura ================
 def CallServiceDeleteAsignatura(Tabla,obj):
     query="DELETE FROM "+Tabla+" WHERE asg_nrc = '"+obj[0]+"'"
