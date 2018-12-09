@@ -10,7 +10,7 @@ def AsignaturasAll():
         return data
 
 def AsignaturasDetalle(nrc):
-    data=CallServiceGetNRC("asignatura",nrc)
+    data=CallServiceGetSomething("asignatura","asg_nrc",nrc)
     error=[]
     if data==error:
        print("no llego")
@@ -21,7 +21,7 @@ def AsignaturasDetalle(nrc):
 def AsignaturaCreate(obj):
     nrc = obj[0]
     error=[]
-    data_nrc=CallServiceGetNRC('asignatura',nrc)
+    data_nrc=CallServiceGetSomething('asignatura','asg_nrc',nrc)
     if data_nrc==error: #no existe nrc
         data_obj=CallServiceSaveAsignatura('asignatura',obj)
         if data_obj == None:
@@ -40,7 +40,7 @@ def AsignaturaDelete(obj):
 def AsignaturaUpdate(obj):
     nrc = obj[0]
     error=[]
-    data_nrc=CallServiceGetNRC('asignatura',nrc)
+    data_nrc=CallServiceGetSomething('asignatura','asg_nrc',nrc)
     obj.append(data_nrc[0][4])
     data_obj=CallServiceUpdateAsignatura('asignatura',obj)
     if data_obj == None:

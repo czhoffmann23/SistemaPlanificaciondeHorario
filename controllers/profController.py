@@ -17,7 +17,7 @@ def ProfesorAll():
         return data
 
 def ProfesorDetalle(rut):
-    data=CallServiceGetRut("profesor",rut)
+    data=CallServiceGetSomething("profesor","rut",rut)
     error=[]
     if data==error:
        print("no llego")
@@ -29,7 +29,7 @@ def ProfesorCreate(obj):
     rut = obj[2]
     curso= obj[3]
     error=[]
-    data_rut=CallServiceGetRut("profesor",rut)
+    data_rut=CallServiceGetSomething("profesor","rut",rut)
     if data_rut==error: #no existe rut
         error_curso=[]
         data_curso=CallServiceGetCurso("profesor",curso)
@@ -55,7 +55,7 @@ def ProfesorUpdate(obj):
 def ProfesorDelete(id):
     data_nrc=CallServiceDeleteProf("profesor",id)
     if data_nrc == None:
-        return 2
-    else:
         return 1
+    else:
+        return 2
    

@@ -27,7 +27,8 @@ def asignaturas():
 #===========  Detalle     ===========
 @route('/Profesor/Detalle/<id>')
 def profesorDetalle(id):
-    return '<h1>Profesor Detalle Pagina!</h1>'
+    resultado=ProfesorDetalle(id)
+    return template('ProfesorDetalle',rows=resultado)
 
 @route('/Asignatura/Detalle/<id>')
 def asginaturaDetalle(id):
@@ -82,16 +83,21 @@ def process():
 #===========  Eliminar    ===========
 @route('/Profesor/Eliminar/<id>')
 def profesorEliminar(id):
-    opcion=ProfesorDelete(id)
+    resultado=ProfesorDetalle(id)
+    return template('ProfesorEliminar',rows=resultado)
+@route('/deleteprofesor', method="POST")
+def delete():
+    rut = request.forms.get('rut')
+    opcion=ProfesorDelete(rut)
     if opcion==1: #exito
-        redirect(url('/ProfesorAll') + '#exitoborrar')
+        redirect(url('/ProfesoresAll') + '#exitoborrar')
     if opcion == 2:          #error en ingreso
-        redirect(url('/ProfesorAll') + '#errorborrar')
+        redirect(url('/ProfesoresAll') + '#errorborrar')
 
 @route('/Asignatura/Eliminar/<id>')
 def asignaturaEliminar(id):
     resultado=AsignaturasDetalle(id)
-    return template('AsignaturaEliminar',rows=resultado)
+    return template('ProfesorEliminar',rows=resultado)
 @route('/delete', method="POST")
 def delete():
     obj=[]
@@ -108,6 +114,7 @@ def delete():
         redirect(url('/AsignaturaAll') + '#exito')
     if opcion == 2:          #error en ingreso
         redirect(url('/Asignatura/Eliminar/'+nrc) + '#error')
+
 
 #===========    Crear     ===========
 @route('/Profesor/Nuevo')
@@ -129,13 +136,17 @@ def process():
         if(bloque1!=None):
             bloque1=bloque1+","
             Horario=Horario + bloque1
-      
+        else:
+            Horario=Horario + "0,"
+
     for i in range(1,11):
         m="M"+str(i)
         bloque1=request.forms.get(m)
         if(bloque1!=None):
             bloque1=bloque1+","
             Horario=Horario + bloque1
+        else:
+            Horario=Horario + "0,"
        
     for i in range(1,11):
         mi="Mi"+str(i)
@@ -143,6 +154,8 @@ def process():
         if(bloque1!=None):
             bloque1=bloque1+","
             Horario=Horario + bloque1
+        else:
+            Horario=Horario + "0,"
         
     for i in range(1,11):
         j="J"+str(i)
@@ -150,6 +163,8 @@ def process():
         if(bloque1!=None):
             bloque1=bloque1+","
             Horario=Horario + bloque1
+        else:
+            Horario=Horario + "0,"
        
     for i in range(1,11):
         v="V"+str(i)
@@ -157,6 +172,8 @@ def process():
         if(bloque1!=None):
             bloque1=bloque1+","
             Horario=Horario + bloque1
+        else:
+            Horario=Horario + "0,"
     Horario=Horario[:-1]
     print(Horario)
     obj.append(nombre)
@@ -165,7 +182,6 @@ def process():
     obj.append(curso)
     obj.append(jornada)
     obj.append(Horario)
-  
     opcion=ProfesorCreate(obj)
     if opcion==1: #exito
         redirect(url('/ProfesoresAll') + '#exito')

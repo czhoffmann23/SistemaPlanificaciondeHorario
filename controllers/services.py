@@ -54,9 +54,9 @@ def CallServiceGetOne(Tabla,id):
     else:
         return data
 
-#==============  GetNRC ================
-def CallServiceGetNRC(Tabla,nrc):
-    query="SELECT * FROM "+str(Tabla)+" WHERE asg_nrc = "+str(nrc)+""
+#==============  GetNRC ================asg_nrc
+def CallServiceGetSomething(Tabla,atributo,resultado):
+    query="SELECT * FROM "+str(Tabla)+" WHERE "+str(atributo)+" = "+str(resultado)+""
     data = run_query(query)
     error=[]
     if data==error:
@@ -129,6 +129,16 @@ def CallServiceUpdateAsignatura(Tabla,obj):
 #==============  DeleteAsignatura ================
 def CallServiceDeleteAsignatura(Tabla,obj):
     query="DELETE FROM "+Tabla+" WHERE asg_nrc = '"+obj[0]+"'"
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error 
+
+    else:
+        return data
+#==============  DeleteProfesor ================
+def CallServiceDeleteProf(Tabla,rut):
+    query="DELETE FROM "+Tabla+" WHERE rut = '"+rut+"'"
     data = run_query(query)
     error=[]
     if data==error:
