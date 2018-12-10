@@ -249,7 +249,23 @@
                                                 % else:
                                                 <option value="Ingenieria Civil Industrial"  >Ingenieria Civil Industrial</option>
                                                 % end
+                                                % if rows[0][3]=='Ingenieria Civil Plan Comun':
+                                                <option value="Ingenieria Civil Plan Comun" selected="true">Ingenieria Civil Plan Comun</option>
+                                                % else:
+                                                <option value="Ingenieria Civil Plan Comun">Ingenieria Civil Plan Comun</option>
+                                                % end
                                             </select>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                     <!-- Bloque input-->
+                                    <div class="form-row ">
+                                        <label class="col-md-3 control-label" for="bloque">Bloque</label>
+                                        <div class="col-md-9">
+                                            <input id="bloque" name="bloque" pattern="[0-9]+" type="text" value={{rows[0][5]}}  placeholder="Bloque" class="form-control" required>
+                                            <div class="invalid-feedback">
+                                                Porfavor ingresa bloque valido.
+                                            </div>
                                         </div>
                                     </div>
                                     <br/>

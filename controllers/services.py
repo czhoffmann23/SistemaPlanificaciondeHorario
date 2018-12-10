@@ -89,8 +89,8 @@ def CallServiceGetCurso(Tabla,curso):
         return data
 #==============  SaveASignatura ================
 def CallServiceSaveAsignatura(Tabla,obj):
-    insert= "INSERT INTO "+Tabla+" (`asg_nrc`, `asg_nombre`, `asg_carrera`, `asg_semestre`, `id`)"
-    insert2= " VALUES ('"+obj[0] +"','"+obj[1]+"','"+obj[2]+"','"+obj[3]+"',NULL)"
+    insert= "INSERT INTO "+Tabla+" (`asg_nrc`, `asg_nombre`, `asg_carrera`, `asg_semestre`, `id`, `bloque`)"
+    insert2= " VALUES ('"+obj[0] +"','"+obj[1]+"','"+obj[2]+"','"+obj[3]+"',NULL,'"+obj[4]+"')"
     query=insert+insert2
     data = run_query(query)
     error=[]
@@ -115,7 +115,7 @@ def CallServiceSaveProfesor(Tabla,obj):
 #==============  UpdateASignatura ================
 def CallServiceUpdateAsignatura(Tabla,obj):
     print("obj servicio", obj)
-    insert= "UPDATE "+Tabla+" SET `asg_nrc`='"+obj[0]+"',`asg_nombre`='"+obj[1]+"',`asg_carrera`='"+obj[2]+"',`asg_semestre`='"+obj[3]+"',`id`='"+str(obj[4])+"'"
+    insert= "UPDATE "+Tabla+" SET `asg_nrc`='"+obj[0]+"',`asg_nombre`='"+obj[1]+"',`asg_carrera`='"+obj[2]+"',`asg_semestre`='"+obj[3]+"',`id`='"+str(obj[4])+"',`bloque`='"+str(obj[5])+"'"
     insert2= " WHERE asg_nrc = '"+obj[0]+"'"
     query=insert+insert2
     print(query)

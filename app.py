@@ -119,10 +119,13 @@ def process():
     semestre = request.forms.get('semestre')
     carrera = request.forms.get('carrera')
     nrc = request.forms.get('nrc')
+    bloque=request.forms.get('bloque')
     obj.append(nrc)
     obj.append(nombre)
     obj.append(carrera)
     obj.append(semestre)
+    obj.append(bloque)
+    
   
     opcion=AsignaturaUpdate(obj)
     if opcion==1: #exito
@@ -147,7 +150,7 @@ def delete():
 @route('/Asignatura/Eliminar/<id>')
 def asignaturaEliminar(id):
     resultado=AsignaturasDetalle(id)
-    return template('ProfesorEliminar',rows=resultado)
+    return template('AsignaturaEliminar',rows=resultado)
 @route('/delete', method="POST")
 def delete():
     obj=[]
@@ -253,10 +256,12 @@ def process():
     semestre = request.forms.get('semestre')
     carrera = request.forms.get('carrera')
     nrc = request.forms.get('nrc')
+    bloque=request.forms.get('bloque')
     obj.append(nrc)
     obj.append(nombre)
     obj.append(carrera)
     obj.append(semestre)
+    obj.append(bloque)
   
     opcion=AsignaturaCreate(obj)
     if opcion==1: #exito
