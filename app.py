@@ -5,6 +5,9 @@ from asigController import *
 import sys
 sys.path.append('./controllers/')
 from profController import *
+import sys
+sys.path.append('./controllers/')
+from horController import *
 
 @error(404)
 def error404(error):
@@ -19,6 +22,10 @@ def index():
 def profesores():
     resultado=ProfesorAll()
     return template('ProfesorAll',rows=resultado)
+@route('/HorariosAll')
+def profesores():
+    resultado=HorariosAll()
+    return template('HorariosAll',rows=resultado)
 
 @route('/AsignaturaAll')
 def asignaturas():
@@ -29,6 +36,11 @@ def asignaturas():
 def profesorDetalle(id):
     resultado=ProfesorDetalle(id)
     return template('ProfesorDetalle',rows=resultado)
+
+@route('/Horario/Detalle/<id>')
+def horarioDetalle(id):
+    resultado=HorariosDetalle(id)
+    return template('HorariosDetalle',rows=resultado)
 
 @route('/Asignatura/Detalle/<id>')
 def asginaturaDetalle(id):
@@ -245,6 +257,36 @@ def process():
         redirect(url('/Profesor/Nuevo') + '#errorcurso')
         
     return template('ProfesorAll')
+
+@route('/HorarioConflictos')
+def horarioConflictos():
+    result=[]
+    return template('index',rows=result)
+
+
+@route('/Horario/Nuevo')
+def horarioCrear():
+    return template('HorarioNueva')
+@route('/horarionuevo', method="POST")
+def process():
+    obj=[]
+    semestre = request.forms.get('semestre')
+    carrera = request.forms.get('carrera')
+    a=semestre.split(" ")
+    idd=a[1]
+    obj.append(semestre)
+    obj.append(carrera)
+    obj.append(idd)
+    opcion=HorariosCreate(obj)
+    if opcion==1: #exito
+        redirect(url('/HorariosAll') + '#exitonueva')
+    if opcion == 2:          #error en ingreso
+        redirect(url('/Horario/Nuevo') + '#error')
+    if opcion!=1 and opcion!=2:  #error de generar horario traer conflictos
+        print(opcion)
+        return template('HorarioConflictos',rows=opcion)
+        
+   
 
 @route('/Asignatura/Nueva')
 def asignaturaCrear():

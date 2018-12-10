@@ -53,8 +53,27 @@ def CallServiceGetOne(Tabla,id):
 
     else:
         return data
+# Para generar horarios
+def CallServiceConsulta(resultado,resultado2,resultado3):
+    query="SELECT profesor.nombre,profesor.apellido,profesor.rut,profesor.curso,profesor.jornada,profesor.horario FROM `asignatura`,`profesor` WHERE asignatura.asg_carrera = '"+str(resultado2)+"' and profesor.jornada = '"+str(resultado)+"' and asignatura.asg_nombre = profesor.curso and asignatura.asg_semestre = '"+str(resultado3)+"'" 
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error
 
-#==============  GetNRC ================asg_nrc
+    else:
+        return data
+
+def CallServiceGetBloque(Tabla,atributo,resultado):
+    query="SELECT bloque FROM `"+str(Tabla)+"` WHERE "+str(atributo)+" = '"+str(resultado)+"'"
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error
+
+    else:
+        return data
+#==============  GetNRC ================
 def CallServiceGetSomething(Tabla,atributo,resultado):
     query="SELECT * FROM "+str(Tabla)+" WHERE "+str(atributo)+" = "+str(resultado)+""
     data = run_query(query)
@@ -84,6 +103,18 @@ def CallServiceGetCurso(Tabla,curso):
     error=[]
     if data==error:
         return error
+
+    else:
+        return data
+#==============  SaveHorario ================
+def CallServiceSaveHorario(Tabla,obj):
+    insert= "UPDATE "+Tabla+" SET `id`='"+obj[6]+"',`semestre`='"+obj[0]+"',`Lunes`='"+obj[1]+"',`Martes`='"+obj[2]+"',`Miercoles`='"+obj[3]+"',`Jueves`='"+obj[4]+"',`Viernes`='"+obj[5]+"'"
+    insert2= " WHERE id = '"+obj[6]+"'"
+    query=insert+insert2
+    data = run_query(query)
+    error=[]
+    if data==error:
+        return error 
 
     else:
         return data

@@ -219,15 +219,15 @@
                                                 <label class="col-md-3 control-label" for="jornada">Jornada</label>
                                                 <div class="col-md-9">
                                                 <select id="jornada" name="jornada" class="form-control">
-                                                    % if rows[4]=='Part-time':
-                                                        <option value="Part-time" selected="true">Part-time</option>
+                                                    % if rows[4]=='PartTime':
+                                                        <option value="PartTime" selected="true">PartTime</option>
                                                     % else:
-                                                        <option value="Part-time">Part-time</option>
+                                                        <option value="PartTime">PartTime</option>
                                                     % end
-                                                    % if rows[4]=='Full-time':
-                                                    <option value="Full-time" selected="true">Full-time</option>
+                                                    % if rows[4]=='FullTime':
+                                                    <option value="FullTime" selected="true">FullTime</option>
                                                     % else:
-                                                        <option value="Full-time">Full-time</option>
+                                                        <option value="FullTime">FullTime</option>
                                                     % end
                                                 </select>
                                                 </div>
